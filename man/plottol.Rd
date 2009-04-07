@@ -10,14 +10,15 @@ plottol(tol.out, x, y = NULL, y.hat = NULL,
 \description{
   Provides control charts and/or histograms for tolerance bounds on continuous data as well as tolerance ellipses
   for data distributed according to bivariate and trivariate normal distributions.  Scatterplots with regression tolerance bounds
-  may also be produced.
+  and interval plots for ANOVA tolerance intervals may also be produced.
 }
 
 \arguments{
-  \item{tol.out}{Output from any continuous tolerance interval procedure or from a regression tolerance bound procedure.}
+  \item{tol.out}{Output from any continuous (including ANOVA) tolerance interval procedure or from a regression tolerance bound procedure.}
   \item{x}{Either data from a continuous distribution or the predictors for a regression model.  If this is a design matrix
   for a linear regression model, then it must be in matrix form AND include a column of 1's if there is to be an intercept.  Note
-  that multiple predictors are only allowed if considering polynomial regression.}
+  that multiple predictors are only allowed if considering polynomial regression.  If the output for \code{tol.out} concerns
+  ANOVA tolerance intervals, then \code{x} must be a data frame.}
   \item{y}{The response vector for a regression setting.  Leave as \code{NULL} if not doing regression tolerance bounds.}
   \item{y.hat}{The fitted values from a nonparametric smoothing routine if plotting nonparametric regression tolerance bounds.  Otherwise,
   leave as \code{NULL}.}
@@ -26,16 +27,17 @@ plottol(tol.out, x, y = NULL, y.hat = NULL,
   bounds.  \code{side = "lower"} produces plots showing the lower tolerance bounds.}
   \item{plot.type}{\code{plot.type = "control"} produces a control chart of the data along with the tolerance bounds specified
   by \code{side}.  \code{plot.type = "hist"} produces a histogram of the data along with the tolerance bounds specified by
-  \code{side}.  \code{plot.type = "both"} produeces both the control chart and histogram.  This argument is ignored
+  \code{side}.  \code{plot.type = "both"} produces both the control chart and histogram.  This argument is ignored
   when plotting regression data.}
   \item{x.lab}{Specify the label for the x-axis.}
   \item{y.lab}{Specify the label for the y-axis.}
   \item{z.lab}{Specify the label for the z-axis.}
-  \item{...}{Additional arguments passed to the plotting function used for producing the plot specified by \code{plot.type}.}
+  \item{...}{Additional arguments passed to the plotting function used for the control charts or regression scatterplots.}
 } 
 \value{
   \code{plottol} can return a control chart, histogram, or both for continuous data along with the calculated tolerance intervals.
-  For regression data, \code{plottol} returns a scatterplot along with the regression tolerance bounds.
+  For regression data, \code{plottol} returns a scatterplot along with the regression tolerance bounds.  For ANOVA output, \code{plottol}
+  returns an interval plot for each factor.
 }
 \references{
   Montgomery, D. C. (2005), \emph{Introduction to Statistical Quality Control}, Fifth Edition, John Wiley \& Sons, Inc.
@@ -76,9 +78,9 @@ plottol(out2, x)
 set.seed(100)
 x <- runif(100, 0, 10)
 y <- 20 + 5*x + rnorm(100, 0, 3)
-out <- regtol.int(reg = lm(y ~ x), new.x = cbind(c(3, 6, 9)), 
-                  side = 2, alpha = 0.05, P = 0.95)
-plottol(out, x = cbind(1, x), y = y, side = "two", x.lab = "X", 
+out3 <- regtol.int(reg = lm(y ~ x), new.x = cbind(c(3, 6, 9)), 
+                   side = 2, alpha = 0.05, P = 0.95)
+plottol(out3, x = cbind(1, x), y = y, side = "two", x.lab = "X", 
         y.lab = "Y")
 
 }

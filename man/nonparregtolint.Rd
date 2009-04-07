@@ -20,7 +20,7 @@ npregtol.int(x, y, y.hat, side = 1, alpha = 0.05, P = 0.99,
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
   \item{P}{The proportion of the population to be covered by the tolerance bound(s).}
   \item{method}{The method for determining which indices of the ordered residuals will be used for the tolerance bounds.  
-  \code{"WILKS"}, \code{"WALD"}, and \code{"HM"} are each described in \code{link{nptol.int}}.  However, since only one tolerance
+  \code{"WILKS"}, \code{"WALD"}, and \code{"HM"} are each described in \code{\link{nptol.int}}.  However, since only one tolerance
   bound can actually be reported for this procedure, only the first tolerance bound will be returned.  Note that this is not
   an issue when \code{method = "WILKS"} is used as it only produces one set of tolerance bounds.}
   \item{upper}{The upper bound of the data.  When \code{NULL}, then the maximum of \code{x} is used.}

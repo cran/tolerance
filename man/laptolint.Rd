@@ -2,22 +2,26 @@
 \title{Laplace Tolerance Intervals}
 \alias{laptol.int}
 \usage{
-laptol.int(x, alpha = 0.05, P = 0.99)
+laptol.int(x, alpha = 0.05, P = 0.99, side = 1)
 }
 \description{
-  Provides 1-sided tolerance intervals for data distributed according to a Laplace distribution.
+  Provides 1-sided or 2-sided tolerance intervals for data distributed according to a Laplace distribution.
 }
 
 \arguments{
   \item{x}{A vector of data which is distributed according to a Laplace distribution.}
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
   \item{P}{The proportion of the population to be covered by this tolerance interval.}
+  \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
+  respectively).}
 } \value{
   \code{laptol.int} returns a data frame with items:
   \item{alpha}{The specified significance level.}
   \item{P}{The proportion of the population covered by this tolerance interval.}
-  \item{1-sided.lower}{The 1-sided lower tolerance bound.}
-  \item{1-sided.upper}{The 1-sided upper tolerance bound.}
+  \item{1-sided.lower}{The 1-sided lower tolerance bound.  This is given only if \code{side = 1}.}
+  \item{1-sided.upper}{The 1-sided upper tolerance bound.  This is given only if \code{side = 1}.}
+  \item{2-sided.lower}{The 2-sided lower tolerance bound.  This is given only if \code{side = 2}.}
+  \item{2-sided.upper}{The 2-sided upper tolerance bound.  This is given only if \code{side = 2}.}
 } 
 
 \references{
@@ -38,7 +42,7 @@ x <- rep(70, 40) - sign(tmp - 0.5)*rep(3, 40)*
 ## 95\%/90\% 1-sided Laplace tolerance intervals for the sample
 ## of size 40 generated above. 
 
-out <- laptol.int(x = x, alpha = 0.05, P = 0.90) 
+out <- laptol.int(x = x, alpha = 0.05, P = 0.90, side = 1) 
 out
 
 plottol(out, x, plot.type = "hist", side = "two", 
