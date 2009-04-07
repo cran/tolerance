@@ -1,0 +1,11 @@
+laptol.int=function(x,alpha=0.05,P=0.99){
+n=length(x)
+k.b=log(2*(1-P))
+mu.hat=median(x)
+beta.hat=mean(abs(x-median(x)))
+k=(-n*k.b+qnorm(1-alpha)*sqrt(n*(1+k.b^2)-qnorm(1-alpha)^2))/(n-qnorm(1-alpha)^2)
+lower=mu.hat-k*beta.hat
+upper=mu.hat+k*beta.hat
+temp=data.frame(cbind(alpha,P,lower,upper))
+colnames(temp)=c("alpha","P","1-sided.lower","1-sided.upper")
+temp}
