@@ -1,17 +1,20 @@
-\name{normtol.int}
-\title{Normal (or Log-Normal) Tolerance Intervals}
-\alias{normtol.int}
+\name{anovatol.int}
+\title{Tolerance Intervals for ANOVA}
+\alias{anovatol.int}
 \usage{
-normtol.int(x, alpha = 0.05, P = 0.99, side = 1,
-            method = c("HE", "WBE"), log.norm = FALSE)
+anovatol.int(lm.out, data, alpha = 0.05, P = 0.99, side = 1,
+             method = c("HE", "WBE"))
 }
 \description{
-  Provides 1-sided or 2-sided tolerance intervals for data distributed according to either a normal
-  distribution or log-normal distribution.
+  Tolerance intervals for each factor level in a balanced (or nearly-balanced) ANOVA.
 }
 
 \arguments{
-  \item{x}{A vector of data which is distributed according to either a normal distribution or a log-normal distribution.}
+  \item{lm.out}{An object of class \code{lm} (i.e., the results from the linear model fitting routine such that
+  the \code{anova} function can act upon).}
+  \item{data}{A data frame consisting of the data fitted in \code{lm.out}.  Note that \code{data} must have one
+  column for each main effect (i.e., factor) that is analyzed in \code{lm.out} and that these columns must be of
+  class \code{factor}.}
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
   \item{P}{The proportion of the population to be covered by this tolerance interval.}
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
@@ -21,25 +24,20 @@ normtol.int(x, alpha = 0.05, P = 0.99, side = 1,
   Howe method and is often viewed as being extremely accurate, even for small sample sizes. \code{"WBE"} is the 
   Weissberg-Beatty method, which performs similarly to the Howe method for larger sample sizes.  Note that the \code{"ELL"}
   option for the Ellison correction is disabled here.}
-  \item{log.norm}{If \code{TRUE}, then the data is considered to be from a log-normal distribution, in which
-  case the output gives tolerance intervals for the log-normal distribution.  The default is \code{FALSE}.} 
 } \value{
-  \code{normtol.int} returns a data frame with items:
-  \item{alpha}{The specified significance level.}
-  \item{P}{The proportion of the population covered by this tolerance interval.}
-  \item{x.bar}{The sample mean.}
+  \code{anovatol.int} returns a list where each element is a data frame corresponding to each main effect (i.e.,
+  factor) tested in the ANOVA and the rows of each data frame are the levels of that factor.  The columns of each data
+  frame report the following:
+  \item{mean}{The mean for that factor level.}
+  \item{n}{The effective sample size for that factor level.}
+  \item{k}{The k-factor for constructing the respective factor level's tolerance interval.}
   \item{1-sided.lower}{The 1-sided lower tolerance bound.  This is given only if \code{side = 1}.}
   \item{1-sided.upper}{The 1-sided upper tolerance bound.  This is given only if \code{side = 1}.}
   \item{2-sided.lower}{The 2-sided lower tolerance bound.  This is given only if \code{side = 2}.}
   \item{2-sided.upper}{The 2-sided upper tolerance bound.  This is given only if \code{side = 2}.}
 } \seealso{
-  \code{\link{Normal}}, \code{\link{K.factor}}
-}
-
-\details{
-Recall that if the random variable \eqn{X} is distributed according to a log-normal distribution, then the random variable \eqn{Y = ln(X)} is
-distributed according to a normal distribution.
-}
+  \code{\link{K.factor}}, \code{\link{normtol.int}}, \code{\link{lm}}, \code{\link{anova}}
+} 
 
 
 \references{
@@ -52,21 +50,19 @@ distributed according to a normal distribution.
 
 \examples{ 
 
-## 95\%/95\% 2-sided normal tolerance intervals for a sample
-## of size 100. 
+## 90\%/95\% 2-sided tolerance intervals for a 2-way ANOVA 
+## using the "warpbreaks" data.
 
-set.seed(100)
-x <- rnorm(100, 0, 0.2)
-out <- normtol.int(x = x, alpha = 0.05, P = 0.95, side = 2,
-                   method = "HE", log.norm = FALSE)
+attach(warpbreaks)
+
+lm.out <- lm(breaks ~ wool + tension)
+out <- anovatol.int(lm.out, data = warpbreaks, alpha = 0.10,
+                    P = 0.95, side = 2, method = "HE")
 out
 
-plottol(out, x, plot.type = "both", side = "two", 
-        x.lab = "Normal Data")
+plottol(out, x = warpbreaks)
 }
 
 \keyword{file}
-
-
 
 

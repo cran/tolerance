@@ -1,5 +1,5 @@
 \name{poistol.int}
-\title{Poison Tolerance Intervals}
+\title{Poisson Tolerance Intervals}
 \alias{poistol.int}
 \usage{
 poistol.int(x, n, m, alpha = 0.05, P = 0.99, side = 1, 

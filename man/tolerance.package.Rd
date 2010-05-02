@@ -13,7 +13,7 @@ are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} 
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 0.1.0\cr
+Version: \tab 0.2.0\cr
 Date: \tab 2009-04-07\cr
 Depends \tab rgl\cr
 License: \tab GPL (>= 2)\cr
@@ -24,8 +24,13 @@ Derek S. Young, Ph.D.
 
 Maintainer: Derek S. Young <dsy109@stat.psu.edu>
 }
+\seealso{
+  \code{\link{confint}}
+}
 \references{
   Hahn, G. J. and Meeker, W. Q. (1991), \emph{Statistical Intervals: A Guide for Practitioners}, Wiley-Interscience.
+
+  Krishnamoorthy, K. and Mathew, T. (2009), \emph{Statistical Tolerance Regions: Theory, Applications, and Computation}, Wiley.
 
   Patel, J. K. (1986), Tolerance Intervals - A Review, \emph{Communications in Statistics - Theory and Methodology},
   \bold{15}, 2719--2762.

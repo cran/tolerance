@@ -2,10 +2,11 @@
 \title{Logistic (or Log-Logistic) Tolerance Intervals}
 \alias{logistol.int}
 \usage{
-logistol.int(x, alpha = 0.05, P = 0.99, log.log = FALSE)
+logistol.int(x, alpha = 0.05, P = 0.99, log.log = FALSE,
+             side = 1)
 }
 \description{
-  Provides 1-sided tolerance intervals for data distributed according to a logistic or log-logistic distribution.
+  Provides 1-sided or 2-sided tolerance intervals for data distributed according to a logistic or log-logistic distribution.
 }
 
 \arguments{
@@ -14,12 +15,16 @@ logistol.int(x, alpha = 0.05, P = 0.99, log.log = FALSE)
   \item{P}{The proportion of the population to be covered by this tolerance interval.}
   \item{log.log}{If \code{TRUE}, then the data is considered to be from a log-logistic distribution, in which
   case the output gives tolerance intervals for the log-logistic distribution.  The default is \code{FALSE}.} 
+  \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
+  respectively).}
 } \value{
   \code{logistol.int} returns a data frame with items:
   \item{alpha}{The specified significance level.}
   \item{P}{The proportion of the population covered by this tolerance interval.}
-  \item{1-sided.lower}{The 1-sided lower tolerance bound.}
-  \item{1-sided.upper}{The 1-sided upper tolerance bound.}
+  \item{1-sided.lower}{The 1-sided lower tolerance bound.  This is given only if \code{side = 1}.}
+  \item{1-sided.upper}{The 1-sided upper tolerance bound.  This is given only if \code{side = 1}.}
+  \item{2-sided.lower}{The 2-sided lower tolerance bound.  This is given only if \code{side = 2}.}
+  \item{2-sided.upper}{The 2-sided upper tolerance bound.  This is given only if \code{side = 2}.}
 } 
 
 \seealso{
@@ -45,7 +50,7 @@ distributed according to a logistic distribution.
 set.seed(100)
 x <- rlogis(20, 5, 1)
 out <- logistol.int(x = x, alpha = 0.10, P = 0.95, 
-                    log.log = FALSE) 
+                    log.log = FALSE, side = 1) 
 out
 
 plottol(out, x, plot.type = "control", side = "two", 

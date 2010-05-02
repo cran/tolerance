@@ -65,6 +65,20 @@ bintol.int(x = 40, n = 1000, m = 500, alpha = 0.15, P = 0.90,
            side = 1, method = "CP")
 bintol.int(x = 40, n = 1000, m = 500, alpha = 0.15, P = 0.90,
            side = 1, method = "LS")
+
+## Using Jeffreys' method to construct the 85\%/90\% 1-sided 
+## binomial tolerance limits.  The first calculation assumes 
+## a prior on the proportion of defects which places greater
+## density on values near 0.  The second calculation assumes
+## a prior on the proportion of defects which places greater
+## density on values near 1.
+
+bintol.int(x = 40, n = 1000, m = 500, alpha = 0.15, P = 0.90,
+           side = 1, method = "JF", a1 = 2, a2 = 10)
+bintol.int(x = 40, n = 1000, m = 500, alpha = 0.15, P = 0.90,
+           side = 1, method = "JF", a1 = 5, a2 = 1)
+
+
  }
 
 \keyword{file}

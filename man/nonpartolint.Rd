@@ -22,7 +22,7 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
   \code{"WILKS"} is the Wilks method, which produces tolerance bounds symmetric about the observed center of the residuals by using
   the beta distribution.  \code{"WALD"} is the Wald method, which produces (possibly) multiple tolerance bounds for \code{side = 2} (each
   having at least the specified confidence level), but is the same as \code{method = "WILKS"} for \code{side = 1}.  \code{"HM"} is
-  the Hahn-Meeker method, which is based on the binomial distibution, but the upper and lower bounds may exceed the minimum and maximum
+  the Hahn-Meeker method, which is based on the binomial distribution, but the upper and lower bounds may exceed the minimum and maximum
   of the sample data.  For \code{side = 2}, this method will yield two intervals if an odd number of observations are to be trimmed from each side.}
   \item{upper}{The upper bound of the data.  When \code{NULL}, then the maximum of \code{x} is used.}
   \item{lower}{The lower bound of the data.  When \code{NULL}, then the minimum of \code{x} is used.}

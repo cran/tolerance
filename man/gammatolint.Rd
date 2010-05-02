@@ -19,7 +19,8 @@ gamtol.int(x, alpha = 0.05, P = 0.99, side = 1,
   \item{method}{The method for calculating the k-factors when using the normal approximation.  The k-factor for the 1-sided tolerance intervals
   is performed exactly and thus the same for either method chosen.  \code{"HE"} is the
   Howe method and is often viewed as being extremely accurate, even for small sample sizes. \code{"WBE"} is the 
-  Weissberg-Beatty method, which performs similarly to the Howe method for larger sample sizes.}
+  Weissberg-Beatty method, which performs similarly to the Howe method for larger sample sizes. Note that the Ellison
+  method is not given as an option here.}
   \item{log.gamma}{If \code{TRUE}, then the data is considered to be from a log-gamma distribution, in which
   case the output gives tolerance intervals for the log-gamma distribution.  The default is \code{FALSE}.} 
 } \value{

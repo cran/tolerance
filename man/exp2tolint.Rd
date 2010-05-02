@@ -34,7 +34,7 @@ exp2tol.int(x, alpha = 0.05, P = 0.99, side = 1,
 }
 
 \references{
-  Dunsmore, I. R. (1978), Some Approximations for Tolerance Factors for the Tow Parameter Exponential Distribution,
+  Dunsmore, I. R. (1978), Some Approximations for Tolerance Factors for the Two Parameter Exponential Distribution,
   \emph{Technometrics}, \bold{20}, 317--318.
 
   Engelhardt, M. and Bain, L. J. (1978), Tolerance Limits and Confidence Limits on Reliability for the Two-Parameter
