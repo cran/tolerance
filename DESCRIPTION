@@ -1,8 +1,8 @@
 Package: tolerance
 Type: Package
 Title: Functions for calculating tolerance intervals
-Version: 0.2.0
-Date: 2009-04-07
+Version: 0.2.1
+Date: 2010-05-13
 Author: Derek S. Young
 Maintainer: Derek S. Young <dsy109@stat.psu.edu>
 Depends: rgl
@@ -13,6 +13,6 @@ Description: Tolerance limits provide the limits between which we can
         Plotting is also available for tolerance limits of continuous
         random variables.
 License: GPL (>= 2)
-Packaged: Sat May 1 18:07:46 2010; Derek Young
+Packaged: Thu May 13 21:53:03 2010; Derek Young
 Repository: CRAN
-Date/Publication: 2010-05-02 07:05:49
+Date/Publication: 2010-05-16 16:22:44

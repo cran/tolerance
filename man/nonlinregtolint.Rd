@@ -35,7 +35,9 @@ nlregtol.int(formula, xy.data = data.frame(), x.new = NULL,
   \item{1-sided.upper}{The 1-sided upper tolerance bound.  This is given only if \code{side = 1}.}
   \item{2-sided.lower}{The 2-sided lower tolerance bound.  This is given only if \code{side = 2}.}
   \item{2-sided.upper}{The 2-sided upper tolerance bound.  This is given only if \code{side = 2}.}} 
-
+\details{
+  It is highly recommended that the user specify starting values for the \code{nls} routine.
+}
 \references{
   Wallis, W. A. (1951), Tolerance Intervals for Linear Regression, in \emph{Second Berkeley Symposium on Mathematical
   Statistics and Probability}, ed. J. Neyman, Berkeley: University of CA Press, 43--51.

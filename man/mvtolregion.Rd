@@ -5,7 +5,7 @@
 mvtol.region(x, alpha = 0.05, P = 0.99, B = 1000)
 }
 \description{
-  Determines the appropriate tolerance factor for computing multivariate normal tolerance regions.
+  Determines the appropriate tolerance factor for computing multivariate normal tolerance regions based on Monte Carlo simulation.
 }
 
 \arguments{
