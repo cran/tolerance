@@ -40,27 +40,7 @@ regtol.int <- function (reg, new.x = NULL, side = 1, alpha = 0.05, P = 0.99)
             "1-sided.upper")
     }
     else {
-        z.p <- qnorm((1 + P)/2)
-        z.a <- qnorm((2 - alpha)/2)
-        df.cut <- n.star^2 * (1 + 1/z.a^2)
-        K <- NULL
-        for (i in 1:length(n.star)) {
-            V <- 1 + z.a^2/n.star[i] + ((3 - z.p^2) * z.a^4)/(6 * 
-                n.star[i]^2)
-            K.1 <- suppressWarnings(z.p * sqrt(V * (1 + (n.star[i] * 
-                V/(2 * df)) * (1 + 1/z.a^2))))
-            chi.a <- qchisq(alpha, df = df)
-            K.2 <- suppressWarnings(z.p * sqrt(((df * (1 + 1/n.star[i]))/(chi.a)) * 
-                (1 + (df - 2 - chi.a)/(2 * (n.star[i] + 1)^2))))
-            if (df > df.cut[i]) {
-                K[i] <- K.1
-            }
-            else {
-                K[i] <- K.2
-                if (is.na(K[i])) 
-                  K[i] <- 0
-            }
-        }
+	K <- sqrt(df * qchisq(P, 1, 1/n.star)/qchisq(alpha, df))
         upper <- y.hat + sqrt(MSE) * K
         lower <- y.hat - sqrt(MSE) * K
         temp <- data.frame(cbind(alpha, P, y, y.hat, lower, upper))

@@ -3,15 +3,13 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
 {
     n <- nrow(xy.data)
     form <- as.formula(formula)
-    test.sig <- "try-error"
-    while (test.sig == "try-error") {
-        out <- try(suppressWarnings(nls(formula = form, data = xy.data, 
-            control = list(maxiter = maxiter, warnOnly = TRUE), 
-            ...)), silent = TRUE)
-        test.sig <- class(try(summary(out)$sigma, silent = TRUE))
-        maxiter <- ceiling(maxiter/2)
-        if (maxiter <= 1) 
-            test.sig <- "quit"
+    out <- try(suppressWarnings(nls(formula = form, data = xy.data, 
+        control = list(maxiter = maxiter, warnOnly = TRUE), 
+        ...)), silent = TRUE)
+    test.sig <- class(try(summary(out)$sigma, silent = TRUE))
+    if(test.sig=="try-error"){
+        stop(paste("Error in nls routine.  Consider different starting estimates 
+	of the parameters.  Type help(nls) for more options."),call.=FALSE)
     }
     sigma <- summary(out)$sigma
     beta.hat <- coef(out)
@@ -30,7 +28,7 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
         while (test.PTP == "try-error") {
             PTP3 <- PTP0 + diag(rep(min(diag(PTP))/1000, length(diag(PTP))))
             PTP.new <- try(solve(PTP3), silent = TRUE)
-            test.PTP <- class(PTP > new)
+            test.PTP <- class(PTP.new)
             PTP0 <- PTP3
         }
         PTP <- PTP.new
@@ -50,6 +48,7 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
     }
     n.star <- n.star^(-1)
     detach(temp)
+    df = n - pars
     if (side == 1) {
         z.p <- qnorm(P)
         delta <- sqrt(n.star) * z.p
@@ -66,28 +65,7 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
             "1-sided.upper")
     }
     else {
-        z.p <- qnorm((1 + P)/2)
-        z.a <- qnorm((2 - alpha)/2)
-        df.cut <- n.star^2 * (1 + 1/z.a^2)
-        K <- NULL
-        df <- n - pars
-        for (i in 1:length(n.star)) {
-            V <- 1 + z.a^2/n.star[i] + ((3 - z.p^2) * z.a^4)/(6 * 
-                n.star[i]^2)
-            K.1 <- suppressWarnings(z.p * sqrt(V * (1 + (n.star[i] * 
-                V/(2 * df)) * (1 + 1/z.a^2))))
-            chi.a <- qchisq(alpha, df = df)
-            K.2 <- suppressWarnings(z.p * sqrt(((df * (1 + 1/n.star[i]))/(chi.a)) * 
-                (1 + (df - 2 - chi.a)/(2 * (n.star[i] + 1)^2))))
-            if (df > df.cut[i]) {
-                K[i] <- K.1
-            }
-            else {
-                K[i] <- K.2
-                if (is.na(K[i])) 
-                  K[i] <- 0
-            }
-        }
+	K <- sqrt(df * qchisq(P, 1, 1/n.star)/qchisq(alpha, df))
         upper <- y.hat + sigma * K
         lower <- y.hat - sigma * K
         temp <- data.frame(cbind(alpha, P, y.hat, xy.data[, 1], 
