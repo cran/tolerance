@@ -29,9 +29,9 @@ np.order(m, alpha = 0.05, P = 0.99, indices = FALSE)
   \code{\link{nptol.int}}
 } \details{
   For the 1-sided tolerance limits, \code{m=s+r} such that the probability is at least \code{1-alpha} that at least the 
-  proportion \code{P} of the population is below the \code{n-s+1})-th order statistic for the upper limit or above \code{r}-th order statistics
+  proportion \code{P} of the population is below the (\code{n-s+1})-th order statistic for the upper limit or above \code{r}-th order statistics
   for the lower limit.  For the 2-sided tolerance intervals, \code{m=s+r} such that the probability is at least \code{1-alpha} that at least the 
-  proportion \code{P} of the population is between the \code{r}-th and \code{n-s+1})-th order statistics.
+  proportion \code{P} of the population is between the \code{r}-th and (\code{n-s+1})-th order statistics.
 }
 
 
