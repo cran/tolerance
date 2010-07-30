@@ -1,53 +1,62 @@
-2010-XX-XX (Version 0.2.1)
-\begin{itemize}
-  \item Started a "NEWS" file for changes in the package.
-  \item Changed the way the k-factor for the two-sided linear and
-  nonlinear regression tolerance intervals are calculated.  Before,
-  an approximation was used.  A more accurate method (presented at the bottom of
-  p. 70 of Krishnamoorthy and Mathew (2009)) is used.
-  \item Fixed a serious bug with the way nlregtol.int() checks that
-  the pseudo-design matrix is, in fact, invertible.
-  \item The function mvregtol.region() was added to estimate multivariate multiple linear
-  regression tolerance factors.
-\end{itemize}
+#######################################
+2010-07-30 (Version 0.2.2)
+#######################################
+*Updated references.
+*Fixed minor typos in documentation.
 
+
+#######################################
+2010-05-16 (Version 0.2.1)
+#######################################
+*Started a "NEWS" file for changes in the package.
+*Changed the way the k-factor for the two-sided linear and
+ nonlinear regression tolerance intervals are calculated.  Before,
+ an approximation was used.  A more accurate method (presented at the
+ bottom of p. 70 of Krishnamoorthy and Mathew (2009)) is used.
+*Fixed a serious bug with the way nlregtol.int() checks that
+ the pseudo-design matrix is, in fact, invertible.
+*The function mvregtol.region() was added to estimate multivariate
+ multiple linear regression tolerance factors.
+
+
+#######################################
 2010-05-02 (Version 0.2.0)
-\begin{itemize}
-  \item New function anovatol.int() performs tolerance interval
-  calculations for balanced ANOVA.
-  \item New function np.order() performs sample size determination
-  for tolerance limits based on order statistics.
-  \item New function umatol.int() performs uniformly most accurate
-  upper tolerance limits for the Poisson, binomial, and negative
-  binomial distributions.
-  \item Updated K.factor() to also include the option method="ELL"
-  for the Ellison correction method.
-  \item Updated acc.samp() to include the option RQL.  Documentation
-  has also been updated to provide more detailed explanations of the
-  function's arguments.
-  \item Updated exttol.int() to also perform calculations for the
-  Gumbel distribution for the maximum.  Before, this function only
-  did calculations for the Weibull distribution and the Gumbel
-  distribution for the minimum.
-  \item The portion of code for gammatol.int() when side=2 was
-  incorrect.  It has now been corrected.
-  \item laptol.int(), logistol.int(), uniftol.int(), and
-  exttol.int() all now include the option side=2 to estimate
-  two-sided tolerance intervals.  The option simply calculates a
-  Bonferroni approximation for the two-sided setting.
-  \item uniftol.int() has now been written to for the general
-  uniform case and not simply for the setting where the distribution
-  has a lower bound of 0.
-  \item plottol() has been updated so that pch=19 is used by default
-  for all of the scatterplots.  It also includes functionality for a
-  plot pertaining to output from the new anovatol.int() function.
-  \item Fixed minor typos in the documentation (e.g., the Poisson
-  tolerance intervals documentation originally said ``Poison").
-  \item Added some additional references to some of the
-  documentation.
-\end{itemize}
+#######################################
+*New function anovatol.int() performs tolerance interval
+ calculations for balanced ANOVA.
+*New function np.order() performs sample size determination
+ for tolerance limits based on order statistics.
+*New function umatol.int() performs uniformly most accurate
+ upper tolerance limits for the Poisson, binomial, and negative
+ binomial distributions.
+*Updated K.factor() to also include the option method="ELL"
+ for the Ellison correction method.
+*Updated acc.samp() to include the option RQL.  Documentation
+ has also been updated to provide more detailed explanations of the
+ function's arguments.
+*Updated exttol.int() to also perform calculations for the
+ Gumbel distribution for the maximum.  Before, this function only
+ did calculations for the Weibull distribution and the Gumbel
+ distribution for the minimum.
+*The portion of code for gammatol.int() when side=2 was
+ incorrect.  It has now been corrected.
+*laptol.int(), logistol.int(), uniftol.int(), and
+ exttol.int() all now include the option side=2 to estimate
+ two-sided tolerance intervals.  The option simply calculates a
+ Bonferroni approximation for the two-sided setting.
+*uniftol.int() has now been written to for the general
+ uniform case and not simply for the setting where the distribution
+ has a lower bound of 0.
+*plottol() has been updated so that pch=19 is used by default
+ for all of the scatterplots.  It also includes functionality for a
+ plot pertaining to output from the new anovatol.int() function.
+*Fixed minor typos in the documentation (e.g., the Poisson
+ tolerance intervals documentation originally said ``Poison").
+*Added some additional references to some of the
+ documentation.
 
+
+#######################################
 2009-06-29 (Version 0.1.0)
-\begin{itemize}
-  \item The `tolerance' package is officially launched.
-\end{itemize}
+#######################################
+*The 'tolerance' package is officially launched.

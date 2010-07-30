@@ -42,6 +42,10 @@ npregtol.int(x, y, y.hat, side = 1, alpha = 0.05, P = 0.99,
   \code{\link{loess}}, \code{\link{nptol.int}}, \code{\link{spline}}
 }
 
+\references{
+  Young, D. S. (2010), \code{tolerance:} An \code{R} Package for Estimating Tolerance Intervals, \emph{Journal of Statistical Software}, \bold{36}(5), 1--39.
+}
+
 \examples{ 
 
 ## 95\%/95\% 2-sided nonparametric regression tolerance bounds

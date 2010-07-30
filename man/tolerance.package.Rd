@@ -13,8 +13,8 @@ are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} 
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 0.2.0\cr
-Date: \tab 2009-04-07\cr
+Version: \tab 0.2.2\cr
+Date: \tab 2010-07-30\cr
 Depends \tab rgl\cr
 License: \tab GPL (>= 2)\cr
 }
@@ -34,5 +34,7 @@ Maintainer: Derek S. Young <dsy109@stat.psu.edu>
 
   Patel, J. K. (1986), Tolerance Intervals - A Review, \emph{Communications in Statistics - Theory and Methodology},
   \bold{15}, 2719--2762.
+  
+  Young, D. S. (2010), \code{tolerance:} An \code{R} Package for Estimating Tolerance Intervals, \emph{Journal of Statistical Software}, \bold{36}(5), 1--39.
 }
 
