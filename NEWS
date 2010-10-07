@@ -1,4 +1,16 @@
 #######################################
+2010-10-07 (Version 0.2.3)
+#######################################
+*Corrected acc.samp() function so that the output is of class
+ "matrix".
+*Changed the exp2tol.int() function so that it does not
+ automatically truncate the lower tolerance limit at 0.
+*The function paretotol.int() was added to estimate tolerance
+ intervals for the Pareto distribution as well as the power
+ distribution.
+
+
+#######################################
 2010-07-30 (Version 0.2.2)
 #######################################
 *Updated references.
