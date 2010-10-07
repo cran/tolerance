@@ -24,8 +24,8 @@ acc.samp <- function (n, N, alpha = 0.05, P = 0.99, AQL = 0.01, RQL = 0.02)
     rownames(temp) <- c("acceptance.limit", "lot.size", "confidence", "P", "AQL", 
          "RQL", "sample.size", "prod.risk", "cons.risk")
     colnames(temp) <- ""
-    print(temp)
     if (temp[9, ] > alpha) 
         cat("Warning: Desired confidence level not attained!", 
             "\n")
+    temp
 }

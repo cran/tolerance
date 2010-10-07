@@ -8,7 +8,7 @@ exp2tol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("GPU",
     method <- match.arg(method)
     if (side == 2) {
         alpha <- alpha/2
-	P <- (P + 1)/2
+    P <- (P + 1)/2
     }
     n <- length(x)
     T <- min(x)
@@ -30,11 +30,11 @@ exp2tol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("GPU",
             k2 <- k2 - (lambda/n)^(1.63 + 0.39 * lambda)
         }
     }
-    lower <- max(T + S * k1, 0)
-    upper <- max(T + S * k2, 0)
+    lower <- T + S * k1
+    upper <- T + S * k2
     if (side == 2) {
         alpha <- 2 * alpha
-	P <- (2 * P) - 1
+    P <- (2 * P) - 1
     }
     temp <- data.frame(cbind(alpha, P, lower, upper))
     if (side == 2) {
