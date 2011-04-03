@@ -1,5 +1,5 @@
 anovatol.int <- function (lm.out, data, alpha = 0.05, P = 0.99, side = 1, method = c("HE", 
-    "WBE")) 
+    "WBE", "EXACT"), m = 50) 
 {
     method <- match.arg(method)
     out <- anova(lm.out)
@@ -21,7 +21,7 @@ anovatol.int <- function (lm.out, data, alpha = 0.05, P = 0.99, side = 1, method
         K <- NULL
         for (j in 1:length(temp.eff)) {
             K <- c(K, K.factor(n = temp.eff[j], alpha = alpha, 
-                P <- P, side = side, method = method))
+                P = P, side = side, method = method, m = m))
         }
         temp.low <- temp.means - K * s
         temp.up <- temp.means + K * s
@@ -43,12 +43,11 @@ anovatol.int <- function (lm.out, data, alpha = 0.05, P = 0.99, side = 1, method
             call. = FALSE)
     names(out.list) <- names(xlev)
     if (side == 1) {
-        cat("These are ", (1 - alpha) * 100, "%/", P * 100, "% ", 
-            side, "-sided tolerance limits.", sep = "", fill = TRUE)
+        message("These are ", (1 - alpha) * 100, "%/", P * 100, "% ", 
+            side, "-sided tolerance limits.")
     }
-    else cat("These are ", (1 - alpha) * 100, "%/", P * 100, 
-        "% ", side, "-sided tolerance intervals.", sep = "", 
-        fill = TRUE)
+    else message("These are ", (1 - alpha) * 100, "%/", P * 100, 
+        "% ", side, "-sided tolerance intervals.")
     attr(out.list, "comment") <- c(resp, alpha, P)
     out.list
 }

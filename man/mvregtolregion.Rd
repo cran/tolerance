@@ -48,7 +48,6 @@ mvregtol.region(y, x, new.x = NULL, int = TRUE, alpha = 0.05,
 
 
 \examples{ 
-
 ## 95\%/95\% multivariate regression tolerance factors using
 ## a fertilizer data set presented in Anderson (2003, p. 374). 
 

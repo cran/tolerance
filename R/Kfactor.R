@@ -1,5 +1,5 @@
 K.factor <- function (n, f = NULL, alpha = 0.05, P = 0.99, side = 1, method = c("HE", 
-    "WBE", "ELL")) 
+    "WBE", "ELL", "EXACT"), m = 50) 
 {
     if (is.null(f)) 
         f <- n - 1
@@ -47,6 +47,16 @@ K.factor <- function (n, f = NULL, alpha = 0.05, P = 0.99, side = 1, method = c(
                 r <- r - delta/diff
             }
             K <- r * sqrt(f/chi.a)
+        }
+        else if (method == "EXACT") {
+            k2 <- sqrt(f * qchisq(P, 1, 1/n)/chi.a)
+            fun1 <- function(k2, df1, P, z) pchisq(df1 * qchisq(P, 1, z^2)/k2^2,
+                df = df1, lower.tail = FALSE) * exp(-0.5 * n * z^2)
+            fun2 <- function(k2, df1, P, n, alpha, m) integrate(fun1, lower = 0, upper = Inf,
+                df1 = df1, P = P, k2 = k2, subdivisions = m)$value
+            fun3 <- function(k2, df1, P, n, alpha, m) sqrt(2 * n/pi) * suppressWarnings(fun2(k2, df1, P, n, alpha, m)) - (1 - alpha)
+            K <- uniroot(f = fun3, interval = c(0, k2 + 1000/n), df1 = f, P = P, n = n, alpha = alpha, m = m,
+                tol = .Machine$double.eps^0.5)$root
         }
         else if (method == "ELL") {
             if (f < (n^2)) 

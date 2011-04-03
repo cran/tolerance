@@ -48,7 +48,6 @@ nlregtol.int(formula, xy.data = data.frame(), x.new = NULL,
 }
 
 \examples{ 
-
 ## 95\%/95\% 2-sided nonlinear regression tolerance bounds
 ## for a sample of size 50. 
 

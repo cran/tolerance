@@ -43,7 +43,6 @@ distributed according to a logistic distribution.
 } 
 
 \examples{ 
-
 ## 90\%/95\% 1-sided logistic tolerance intervals for a sample
 ## of size 20. 
 

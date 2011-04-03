@@ -58,7 +58,6 @@ distribution.}
 } 
 
 \examples{ 
-
 ## 95\%/99\% 2-sided Pareto tolerance intervals 
 ## for a sample of size 500. 
 

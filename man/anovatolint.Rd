@@ -3,7 +3,7 @@
 \alias{anovatol.int}
 \usage{
 anovatol.int(lm.out, data, alpha = 0.05, P = 0.99, side = 1,
-             method = c("HE", "WBE"))
+             method = c("HE", "WBE", "EXACT"), m = 50)
 }
 \description{
   Tolerance intervals for each factor level in a balanced (or nearly-balanced) ANOVA.
@@ -22,8 +22,11 @@ anovatol.int(lm.out, data, alpha = 0.05, P = 0.99, side = 1,
   \item{method}{The method for calculating the k-factors.  The k-factor for the 1-sided tolerance intervals
   is performed exactly and thus the same for either method chosen.  \code{"HE"} is the
   Howe method and is often viewed as being extremely accurate, even for small sample sizes. \code{"WBE"} is the 
-  Weissberg-Beatty method, which performs similarly to the Howe method for larger sample sizes.  Note that the \code{"ELL"}
+  Weissberg-Beatty method, which performs similarly to the Howe method for larger sample sizes. \code{"EXACT"} computes the k-factor exactly by finding the integral solution to the
+  problem via the \code{integrate} function.  Note the computation time of this method is largely determined by \code{m}.   Note that the \code{"ELL"}
   option for the Ellison correction is disabled here.}
+  \item{m}{The maximum number of subintervals to be used in the \code{integrate} function.  This is necessary only for \code{method = "EXACT"}.  The larger
+  the number, the more accurate the solution.  Too low of a value can result in an error.}
 } \value{
   \code{anovatol.int} returns a list where each element is a data frame corresponding to each main effect (i.e.,
   factor) tested in the ANOVA and the rows of each data frame are the levels of that factor.  The columns of each data
@@ -49,7 +52,6 @@ anovatol.int(lm.out, data, alpha = 0.05, P = 0.99, side = 1,
 } 
 
 \examples{ 
-
 ## 90\%/95\% 2-sided tolerance intervals for a 2-way ANOVA 
 ## using the "warpbreaks" data.
 

@@ -11,9 +11,8 @@ citEntry(entry = "Article",
   url          = "http://www.jstatsoft.org/v36/i05/",
 
   textVersion  =
-  paste("Derek S.~Young (2010).",
+  paste("Derek S. Young (2010).",
         "tolerance: An R Package for Estimating Tolerance Intervals.",
         "Journal of Statistical Software, 36(5), 1-39.",
         "URL http://www.jstatsoft.org/v36/i05/.")
 )
-

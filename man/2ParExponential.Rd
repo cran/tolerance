@@ -31,7 +31,7 @@ r2exp(n, rate = 1, shift = 0)
   
   The 2-parameter exponential distribution has density
   \deqn{f(x) = \frac{1}{\beta}e^{(x-\mu)/ \beta}}{%
-        f(x) = exp(-(x-\mu)/\beta)/\beta}
+        f(x) = exp(-(x-\mu)/\beta)/\beta},
   where \eqn{x\ge\mu}, \eqn{\mu} is the shift parameter, and \eqn{\beta>0} is the scale parameter.
 }
 \value{
@@ -41,7 +41,6 @@ r2exp(n, rate = 1, shift = 0)
 
 \seealso{\code{\link{runif}} and \code{\link{.Random.seed}} about random number generation.}
 \examples{
-
 ## Randomly generated data from the 2-parameter exponential 
 ## distribution.
 

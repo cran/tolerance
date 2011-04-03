@@ -47,7 +47,6 @@ npregtol.int(x, y, y.hat, side = 1, alpha = 0.05, P = 0.99,
 }
 
 \examples{ 
-
 ## 95\%/95\% 2-sided nonparametric regression tolerance bounds
 ## for a sample of size 50. 
 

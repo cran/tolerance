@@ -33,7 +33,6 @@ uniftol.int(x, alpha = 0.05, P = 0.99, upper = NULL,
 } 
 
 \examples{ 
-
 ## 90\%/90\% 1-sided uniform tolerance intervals for a sample
 ## of size 50 with a known lower bound of 0. 
 

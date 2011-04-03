@@ -29,26 +29,29 @@ np.order(m, alpha = 0.05, P = 0.99, indices = FALSE)
   \code{\link{nptol.int}}
 } \details{
   For the 1-sided tolerance limits, \code{m=s+r} such that the probability is at least \code{1-alpha} that at least the 
-  proportion \code{P} of the population is below the (\code{n-s+1})-th order statistic for the upper limit or above \code{r}-th order statistics
-  for the lower limit.  For the 2-sided tolerance intervals, \code{m=s+r} such that the probability is at least \code{1-alpha} that at least the 
-  proportion \code{P} of the population is between the \code{r}-th and (\code{n-s+1})-th order statistics.
+  proportion \code{P} of the population is below the (\code{n-s+1})-th order statistic for the upper limit or above the \code{r}-th order statistic
+  for the lower limit.  This means for the 1-sided upper limit that \code{r=1}, while for the 1-sided lower limit it means that \code{s=1}. 
+  For the 2-sided tolerance intervals, \code{m=s+r} such that the probability is at least \code{1-alpha} that at least the 
+  proportion \code{P} of the population is between the \code{r}-th and (\code{n-s+1})-th order statistics. Thus, all combinations of r>0 and
+  s>0 such that \code{m=s+r} are considered.
 }
 
 
 \references{
-  Hanson, D. L. and Owen, D. B. (1963), \emph{Distribution-Free Tolerance Limits Elimination of the Requirement That
-  Cumulative Distribution Functions Be Continuous}, \emph{Technometrics}, \bold{5}, 518--522. 
+  Hanson, D. L. and Owen, D. B. (1963), Distribution-Free Tolerance Limits Elimination of the Requirement That
+  Cumulative Distribution Functions Be Continuous, \emph{Technometrics}, \bold{5}, 518--522. 
 
-  Scheffe, H. and Tukey, J. W. (1945), \emph{Non-Parametric Estimation I. Validation of Order Statistics}, 
+  Scheffe, H. and Tukey, J. W. (1945), Non-Parametric Estimation I. Validation of Order Statistics, 
   \emph{Annals of Mathematical Statistics}, \bold{16}, 187--192. 
 } 
 
 \examples{ 
-
 ## Only requesting the sample size.
+
 np.order(m = 5, alpha = 0.05, P = 0.95)
 
 ## Requesting the order statistics indices as well.
+
 np.order(m = 5, alpha = 0.05, P = 0.95, indices = TRUE)
 
 }

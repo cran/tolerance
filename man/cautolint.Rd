@@ -32,7 +32,6 @@ cautol.int(x, alpha = 0.05, P = 0.99, side = 1)
 } 
 
 \examples{ 
-
 ## 95\%/90\% 2-sided Cauchy tolerance interval for a sample 
 ## of size 1000. 
 

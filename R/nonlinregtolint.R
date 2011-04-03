@@ -75,5 +75,6 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
     }
     index <- which(names(temp) == "y")
     temp <- data.matrix(temp[order(temp[, index]), ], rownames.force = FALSE)
+    temp <- data.frame(temp, check.names = FALSE)
     temp
 }
