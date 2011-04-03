@@ -36,7 +36,6 @@ exptol.int(x, alpha = 0.05, P = 0.99, side = 1, type.2 = FALSE)
 } 
 
 \examples{ 
-
 ## 95\%/99\% 1-sided exponential tolerance intervals for a
 ## sample of size 50. 
 

@@ -60,7 +60,6 @@ estimators for the parameters.
 } 
 
 \examples{ 
-
 ## 85\%/90\% 1-sided Weibull tolerance intervals for a sample
 ## of size 150. 
 

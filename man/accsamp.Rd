@@ -19,7 +19,7 @@ acc.samp(n, N, alpha = 0.05, P = 0.99, AQL = 0.01, RQL = 0.02)
   \item{RQL}{The rejectable quality level, which is the largest proportion of defects in an independent lot
   that one is willing to tolerate. Note that \code{AQL < RQL < 1}.}
 } \value{
-  \code{acc.samp} returns a data frame with items:
+  \code{acc.samp} returns a matrix with the following quantities:
   \item{acceptance.limit}{The number of items in the sample which may be unaccountable, yet still be able to 
   attain the desired confidence level \code{1-alpha}.}
   \item{lot.size}{The total inventory (or lot) size \code{N}.}
@@ -35,7 +35,7 @@ acc.samp(n, N, alpha = 0.05, P = 0.99, AQL = 0.01, RQL = 0.02)
   called the Type I error).  A good inventory can be rejected if an unfortunate random sample is selected (e.g.,
   most of the missing items happened to be selected for the audit).}
   \item{cons.risk}{The consumer's risk at the specified \code{RQL}.  This is the probability of accepting an audit of a bad inventory (also
-  called the Type II error).  A bad inventory can be accepted if a fortunate random sample (e.g., most of the missing
+  called the Type II error).  A bad inventory can be accepted if a fortunate random sample is selected (e.g., most of the missing
   items happened to not be selected for the audit).  \code{1-cons.risk} gives the actual confidence level of this 
   sampling plan.  If it is lower than the confidence level desired (e.g., because the \code{RQL} is too low), then a warning message will be displayed.}
 } \seealso{
@@ -47,7 +47,6 @@ acc.samp(n, N, alpha = 0.05, P = 0.99, AQL = 0.01, RQL = 0.02)
 } 
 
 \examples{ 
-
 ## A 90\%/90\% acceptance sampling plan for a sample of 450 
 ## drawn from a lot size of 960.
 

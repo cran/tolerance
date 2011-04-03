@@ -51,7 +51,6 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
 } 
 
 \examples{ 
-
 ## 90\%/95\% 2-sided nonparametric tolerance intervals for a 
 ## sample of size 20. 
 

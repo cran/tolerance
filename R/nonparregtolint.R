@@ -30,6 +30,7 @@ npregtol.int <- function (x, y, y.hat, side = 1, alpha = 0.05, P = 0.99, method 
     }
     if (length(out.temp) == 1) 
         out.temp <- out.temp[[i]]
+    out.temp <- data.frame(out.temp, check.names = FALSE)
     out.temp
 }
 

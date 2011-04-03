@@ -45,7 +45,6 @@ plottol(tol.out, x, y = NULL, y.hat = NULL,
 
 
 \examples{ 
-
 ## 90\%/90\% 1-sided Weibull tolerance intervals for a sample
 ## of size 150. 
 

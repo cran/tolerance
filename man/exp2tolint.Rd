@@ -45,7 +45,6 @@ exp2tol.int(x, alpha = 0.05, P = 0.99, side = 1,
 } 
 
 \examples{ 
-
 ## 95\%/90\% 1-sided 2-parameter exponential tolerance intervals
 ## for a sample of size 50. 
 

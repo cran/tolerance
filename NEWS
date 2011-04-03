@@ -1,4 +1,25 @@
 #######################################
+2011-04-03 (Version 0.3.0)
+#######################################
+*Changed the output for regtol.int(), nlregtol.int(),
+ and npregtol.int() from class "matrix" to "data.frame".
+*Updated K.factor() to also include the option method="EXACT",
+ which does an exact calculation of two-sided k-factors
+ by numerically solving the necessary integral calculation.
+*Reflected the new exact method for calculating the k-factors
+ above in the gamtol.int() and anovatol.int() functions.
+*The function bonftol.int() was added to approximate two-sided
+ tolerance intervals that control the proportion of the population
+ in the tails.
+*The function diffnormtol.int() was added for calculating one-sided
+ tolerance limits for the difference between two independent
+ normal random variables.  An exact calculation is performed when
+ the variance ratio is known, while various estimation methods are
+ used when the variance ratio is unknown.
+*Updated references.
+
+
+#######################################
 2010-10-07 (Version 0.2.3)
 #######################################
 *Corrected acc.samp() function so that the output is of class

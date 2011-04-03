@@ -30,7 +30,6 @@ laptol.int(x, alpha = 0.05, P = 0.99, side = 1)
 } 
 
 \examples{ 
-
 ## First generate data from a Laplace distribution with location
 ## parameter 70 and scale parameter 3.
 

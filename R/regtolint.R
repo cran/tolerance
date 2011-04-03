@@ -49,6 +49,7 @@ regtol.int <- function (reg, new.x = NULL, side = 1, alpha = 0.05, P = 0.99)
     }
     index <- which(names(temp) == "y.hat")
     temp <- data.matrix(temp[order(temp[, index]), ], rownames.force = FALSE)
+    temp <- data.frame(temp, check.names = FALSE)
     temp
 }
 

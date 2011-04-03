@@ -13,7 +13,7 @@ K.table(n, alpha, P, side = 1, f = NULL,
 \arguments{
   \item{n}{A vector of (effective) sample sizes.}
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.  Can be a vector.}
-  \item{P}{The proportion of the population to be covered by this tolerance interval.  Can be a vector}
+  \item{P}{The proportion of the population to be covered by this tolerance interval.  Can be a vector.}
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
   respectively).}
   \item{f}{The number of degrees of freedom associated with calculating the estimate of the population standard deviation.
@@ -42,7 +42,6 @@ K.table(n, alpha, P, side = 1, f = NULL,
 } 
 
 \examples{ 
-
 ## Tables generated for each value of the sample size.
 
 K.table(n = seq(50, 100, 10), alpha = c(0.01, 0.05, 0.10), 

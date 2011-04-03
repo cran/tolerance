@@ -53,7 +53,6 @@ bintol.int(x, n, m, alpha = 0.05, P = 0.99, side = 1,
 } 
 
 \examples{ 
-
 ## 85\%/90\% 1-sided binomial tolerance limits for a future 
 ## lot of 500 when a sample of 40 were drawn from a lot of 
 ## 1000.  The Agresti-Coull, Clopper-Pearson, and large-sample

@@ -51,7 +51,6 @@ distributed according to a normal distribution.
 } 
 
 \examples{ 
-
 ## 95\%/95\% 2-sided normal tolerance intervals for a sample
 ## of size 100. 
 

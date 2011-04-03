@@ -41,7 +41,6 @@ umatol.int(x, n = NULL, dist = c("Bin", "NegBin", "Pois"), N,
 }
 
 \examples{ 
-
 ## Examples from Zacks (1970).
 
 umatol.int(25, n = 4, dist = "Bin", N = 10, alpha = 0.10, 

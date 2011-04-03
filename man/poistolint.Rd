@@ -43,7 +43,6 @@ poistol.int(x, n, m, alpha = 0.05, P = 0.99, side = 1,
 } 
 
 \examples{ 
-
 ## 95\%/90\% 1-sided Poisson tolerance limits for future 
 ## occurrences in a period of length of 3.  Both methods
 ## are presented for comparison.

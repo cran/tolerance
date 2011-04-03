@@ -39,7 +39,6 @@ mvtol.region(x, alpha = 0.05, P = 0.99, B = 1000)
 
 
 \examples{ 
-
 ## 90\%/90\% bivariate normal tolerance region. 
 
 set.seed(100)
