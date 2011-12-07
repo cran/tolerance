@@ -33,11 +33,11 @@ acc.samp(n, N, alpha = 0.05, P = 0.99, AQL = 0.01, RQL = 0.02)
   \item{sample.size}{The sample size drawn as specified by \code{n}.}
   \item{prod.risk}{The producer's risk at the specified \code{AQL}.  This is the probability of rejecting an audit of a good inventory (also
   called the Type I error).  A good inventory can be rejected if an unfortunate random sample is selected (e.g.,
-  most of the missing items happened to be selected for the audit).}
+  most of the missing items happened to be selected for the audit).  \code{1-prod.risk} gives the confidence level of this 
+  sampling plan for the specified \code{AQL} and \code{RQL}.  If it is lower than the confidence level desired (e.g., because the \code{AQL} is too high), then a warning message will be displayed.}
   \item{cons.risk}{The consumer's risk at the specified \code{RQL}.  This is the probability of accepting an audit of a bad inventory (also
   called the Type II error).  A bad inventory can be accepted if a fortunate random sample is selected (e.g., most of the missing
-  items happened to not be selected for the audit).  \code{1-cons.risk} gives the actual confidence level of this 
-  sampling plan.  If it is lower than the confidence level desired (e.g., because the \code{RQL} is too low), then a warning message will be displayed.}
+  items happened to not be selected for the audit).}
 } \seealso{
   \code{\link{Hypergeometric}}
 }

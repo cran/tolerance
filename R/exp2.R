@@ -16,10 +16,10 @@ p2exp <- function (q, rate = 1, shift = 0, lower.tail = TRUE, log.p = FALSE)
         stop(paste("Rate must be larger than 0!", "\n"))
     }
     p <- 1 - exp(-(q - shift)/rate)
-    if (log.p) 
-        p <- log(p)
     if (lower.tail == FALSE) 
         p <- 1 - p
+    if (log.p) 
+        p <- log(p)
     p
 }
 
@@ -30,7 +30,7 @@ q2exp <- function (p, rate = 1, shift = 0, lower.tail = TRUE, log.p = FALSE)
         stop(paste("Rate must be larger than 0!", "\n"))
     }
     if (log.p) 
-        p <- log(p)
+        p <- exp(p)
     if (lower.tail == FALSE) 
         p <- 1 - p
     x <- shift - rate * log(1 - p)

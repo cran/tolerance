@@ -13,7 +13,7 @@ bintol.int(x, n, m, alpha = 0.05, P = 0.99, side = 1,
 }
 
 \arguments{
-  \item{x}{The number of defective (or acceptable) units in the sample.}
+  \item{x}{The number of defective (or acceptable) units in the sample. Can be a vector of length \code{n}, in which case the sum of \code{x} is used.}
   \item{n}{The size of the random sample of units selected for inspection.}
   \item{m}{The quantity produced in future groups.}
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
@@ -22,7 +22,7 @@ bintol.int(x, n, m, alpha = 0.05, P = 0.99, side = 1,
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
   respectively).}
   \item{method}{The method for calculating the lower and upper confidence bounds, which are used in the calculation
-  of the tolerance bounds.  The default method is \code{"LS"}, which is the large-sample method.  \code{"AC"} gives the Agresti-Coull method,
+  of the tolerance bounds.  The default method is \code{"LS"}, which is the large-sample method.  \code{"WS"} is Wilson's method, which is just the score confidence interval.  \code{"AC"} gives the Agresti-Coull method,
   which is also appropriate when the sample size is large.  \code{"JF"} is Jeffreys' method, which is a Bayesian approach
   to the estimation.  \code{"CP"} is the Clopper-Pearson method, which provides a more conservative interval.  \code{"AS"} is
   the arcsine method, which is appropriate when the sample proportion is not too close to 0 or 1.  \code{"LO"} is the logit
@@ -41,7 +41,7 @@ bintol.int(x, n, m, alpha = 0.05, P = 0.99, side = 1,
   \item{2-sided.lower}{The 2-sided lower tolerance bound.  This is given only if \code{side = 2}.}
   \item{2-sided.upper}{The 2-sided upper tolerance bound.  This is given only if \code{side = 2}.}
 } \seealso{
-  \code{\link{Binomial}}
+  \code{\link{Binomial}}, \code{\link{umatol.int}}
 }
 
 \references{

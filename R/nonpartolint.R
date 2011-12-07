@@ -110,7 +110,7 @@ nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS",
         HM.ind <- temp[temp[, 2] == mins, 1]
         diff <- n - HM.ind
         if (side == 2) {
-            if (diff == 0) {
+            if (diff == 0 | floor(diff/2) == 0) {
                 if (lower) 
                   x.sort <- c(lower, x.sort)
                 if (upper) 
@@ -129,6 +129,9 @@ nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS",
             }
             temp <- data.frame(cbind(alpha, P, x.sort[HM[, 1]], 
                 x.sort[HM[, 2]]))
+	if (sum(dim(HM) == c(2, 2))==2){
+        	if ((x.sort[HM[1, 1]] == x.sort[HM[2, 1]]) & (x.sort[HM[1, 2]] == x.sort[HM[2, 2]])) temp <- temp[1, ]
+	}
             colnames(temp) <- c("alpha", "P", "2-sided.lower", 
                 "2-sided.upper")
         }
@@ -153,7 +156,5 @@ nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS",
     }
     temp
 }
-
-
 
 

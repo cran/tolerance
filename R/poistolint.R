@@ -1,23 +1,29 @@
 poistol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("TAB", 
-    "LS")) 
+    "LS", "SC")) 
 {
     if (side != 1 && side != 2) {
         stop(paste("Must specify a one-sided or two-sided procedure!", 
             "\n"))
     }
     method <- match.arg(method)
+    if(length(x) > 1) x <- sum(x)
     if (side == 2) {
         alpha <- alpha/2
-	P <- (P +1)/2
-    }	
+        P <- (P + 1)/2
+    }
     if (method == "TAB") {
         lower.lambda <- 0.5 * qchisq(alpha, df = (2 * x))/n
         upper.lambda <- 0.5 * qchisq(1 - alpha, df = (2 * x + 
             2))/n
     }
-    else {
+    if (method == "LS") {
         lower.lambda <- (x/n) - (qnorm(1 - alpha) * sqrt(x))/n
         upper.lambda <- (x/n) + (qnorm(1 - alpha) * sqrt(x))/n
+    }
+    if (method == "SC") {
+	  k <- qnorm(1 - alpha)
+        lower.lambda <- (x/n) + (k^2/(2*n)) - (k/sqrt(n))*sqrt((x/n)+(k^2/(4*n)))
+        upper.lambda <- (x/n) + (k^2/(2*n)) + (k/sqrt(n))*sqrt((x/n)+(k^2/(4*n)))
     }
     f1 <- function(J, m, P, lambda1) ppois((J - 1), lambda = (m * 
         lambda1), lower.tail = FALSE) - P
@@ -49,7 +55,7 @@ poistol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("
     }
     if (side == 2) {
         alpha <- 2 * alpha
-	P <- (2 * P) - 1
+        P <- (2 * P) - 1
     }
     temp <- data.frame(cbind(alpha, P, x/n, lower, upper))
     if (side == 2) {

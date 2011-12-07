@@ -1,4 +1,27 @@
 #######################################
+2011-12-07 (Version 0.4.0)
+#######################################
+*Added negbintol.int() function for calculating tolerance limits for
+ negative binomial random variables.
+*Updated poistol.int() to also include the score method as a way to 
+ estimate the tolerance limits.
+*Added distribution functions (i.e., density, cumulative distribution,
+ quantile, and random generation) for zeta, Zipf, and Zipf-Mandelbrot
+ distributions.
+*Added zm.ll() function for estimation of the shape parameter(s) in the
+ zeta, Zipf, and Zipf-Mandelbrot distributions.
+*Added zipftol.int() function for calculating tolerance intervals for the
+ zeta, Zipf, and Zipf-Mandelbrot distributions.
+*Corrected bug in p2exp() and q2exp() functions.
+*Corrected how the output is displayed for the nptol.int()
+ function when method="HM".
+*Fixed rounding error in the acc.samp() function and added
+ clarifying text in the acc.samp() documentation.
+*Fixed estimation issue in exttol.int() function.  The Newton-Raphson
+ algorithm had an error when parameter values were relatively large.
+
+
+#######################################
 2011-04-03 (Version 0.3.0)
 #######################################
 *Changed the output for regtol.int(), nlregtol.int(),

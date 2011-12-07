@@ -18,7 +18,7 @@ umatol.int(x, n = NULL, dist = c("Bin", "NegBin", "Pois"), N,
   \code{"NegBin"} for the negative binomial distribution, and \code{"Pois"} for the Poisson distribution.}
   \item{N}{Must be specified for the binomial and negative binomial distributions.  If \code{dist = "Bin"}, then \code{N}
   is the number of Bernoulli trials and must be a positive integer.  If \code{dist = "NegBin"}, then \code{N} is the total number
-  of successful trial (or dispersion parameter) and must be strictly positive.}
+  of successful trials (or dispersion parameter) and must be strictly positive.}
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
   \item{P}{The proportion of the population to be covered by this tolerance interval.}
 } \value{

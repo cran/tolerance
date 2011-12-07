@@ -1,13 +1,19 @@
 exttol.int <- function (x, alpha = 0.05, P = 0.99, side = 1,
     dist = c("Weibull", "Gumbel"), ext = c("min", "max"), NR.delta = 1e-08) 
 {
+    m.x <- abs(max(x))+1000
+    temp.ind <- 0
+    if (sum(abs(x)>1000) > 0) {
+        temp.ind <- 1
+        x <- x/m.x
+    }
     if (side != 1 && side != 2) {
         stop(paste("Must specify a one-sided or two-sided procedure!", 
             "\n"))
     }
     if (side == 2) {
         alpha <- alpha/2
-	P <- (P + 1)/2
+    P <- (P + 1)/2
     }
     n <- length(x)
     dist <- match.arg(dist)
@@ -91,16 +97,21 @@ exttol.int <- function (x, alpha = 0.05, P = 0.99, side = 1,
     }
     if (side == 2) {
         alpha <- 2 * alpha
-	P <- (2 * P) - 1
+    P <- (2 * P) - 1
+    }
+    if (temp.ind==1) {
+        b <- b*m.x
+        lower <- lower*m.x
+        upper <- upper*m.x
     }
     temp <- data.frame(cbind(alpha, P, a, b, lower, upper))
     if (side == 2) {
         colnames(temp) <- c("alpha", "P", "shape.1", "shape.2", 
-		"2-sided.lower", "2-sided.upper")
+        "2-sided.lower", "2-sided.upper")
     }
     else {
         colnames(temp) <- c("alpha", "P", "shape.1", "shape.2", 
-		"1-sided.lower", "1-sided.upper")
+        "1-sided.lower", "1-sided.upper")
     }
     temp
 }
