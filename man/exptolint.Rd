@@ -21,7 +21,7 @@ exptol.int(x, alpha = 0.05, P = 0.99, side = 1, type.2 = FALSE)
   \code{exptol.int} returns a data frame with items:
   \item{alpha}{The specified significance level.}
   \item{P}{The proportion of the population covered by this tolerance interval.}
-  \item{lambda.hat}{The mean of the data (i.e., \code{1/rate}.}
+  \item{lambda.hat}{The mean of the data (i.e., \code{1/rate}).}
   \item{1-sided.lower}{The 1-sided lower tolerance bound.  This is given only if \code{side = 1}.}
   \item{1-sided.upper}{The 1-sided upper tolerance bound.  This is given only if \code{side = 1}.}
   \item{2-sided.lower}{The 2-sided lower tolerance bound.  This is given only if \code{side = 2}.}

@@ -1,3 +1,4 @@
+
 bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("LS", 
     "WS", "AC", "JF", "CP", "AS", "LO"), a1 = 0.5, a2 = 0.5) 
 {
@@ -7,9 +8,10 @@ bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("L
     }
     if (side == 2) {
         alpha <- alpha/2
-	P <- (P + 1)/2
+        P <- (P + 1)/2
     }
     method <- match.arg(method)
+    if(length(x) > 1) x <- sum(x)
     p.hat <- x/n
     k <- qnorm(1 - alpha)
     x.tilde <- (x + k^2/2)
@@ -89,7 +91,7 @@ bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("L
     }
     if (side == 2) {
         alpha <- 2 * alpha
-	P <- (2 * P) - 1
+        P <- (2 * P) - 1
     }
     temp <- data.frame(cbind(alpha, P, p.hat, lower, upper))
     if (side == 2) {
@@ -102,6 +104,3 @@ bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("L
     }
     temp
 }
-
-
-

@@ -8,7 +8,7 @@
 \title{The 2-Parameter Exponential Distribution}
 \description{
   Density, distribution function, quantile function, and random generation for the 2-parameter 
-  exponential distribution with rate equal to \code{rate} and shift equal to \code{shift}.
+  exponential distribution with rate equal to \code{rate} and shift equal to \code{shift}. 
 }
 \usage{
 d2exp(x, rate = 1, shift = 0, log = FALSE)
@@ -31,7 +31,7 @@ r2exp(n, rate = 1, shift = 0)
   
   The 2-parameter exponential distribution has density
   \deqn{f(x) = \frac{1}{\beta}e^{(x-\mu)/ \beta}}{%
-        f(x) = exp(-(x-\mu)/\beta)/\beta},
+        f(x) = exp(-(x-\mu)/\beta)/\beta,}
   where \eqn{x\ge\mu}, \eqn{\mu} is the shift parameter, and \eqn{\beta>0} is the scale parameter.
 }
 \value{
