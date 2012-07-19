@@ -1,5 +1,5 @@
-anovatol.int <- function (lm.out, data, alpha = 0.05, P = 0.99, side = 1, method = c("HE", 
-    "WBE", "EXACT"), m = 50) 
+anovatol.int <- function (lm.out, data, alpha = 0.05, P = 0.99, side = 1, method = c("HE", "HE2",
+	    "WBE", "ELL", "KM", "EXACT", "OCT"), m = 50) 
 {
     method <- match.arg(method)
     out <- anova(lm.out)

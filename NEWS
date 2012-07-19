@@ -1,4 +1,60 @@
 #######################################
+2012-07-19 (Version 0.5.0)
+#######################################
+*Added code for using a fiducial approach to estimate tolerance intervals for the function of 
+ two binomial proportions (fidbintol.int), two Poisson rates (fidpoistol.int), and two negative binomial
+ proportions (fidnegbintol.int).
+*Added three new options for estimating the two-sided K-factor for the normal setting: one due
+ to Howe, one due to Krishnamoorthy and Mathew, and one for controlling the tail probabilities.  
+ The exact method has also been made more efficient.  Also, corrected a small error in the normtol.int 
+ function that did not allow the user to call all of the possible methods as cited in the documentation.
+ The K.factor() function was also vectorized to accommodate a vector of sample sizes.
+*Added a function that calculates Appell's hypergeometric function of the first
+ kind (F1), distribution functions for the difference between two proportions (qdiffprop,
+ pdiffprop, ddiffprop, and rdiffprop), and code for estimating tolerance intervals for the
+ difference between two proportions using a fiducial-based approach (diffproptol.int). 
+*Condensed the Zipf, Zipf-Mandelbrot, and zeta distribution functions into
+ the qzipfman, pzipfman, dzipfman, and rzipfman functions.  This simultaneously
+ corrected a minor bug in the original distribution functions of the three distributions.
+ Searches on any of these distributions will now point to these new functions.  Future work will
+ likely be done on these functions to make them more efficient.
+*Added distribution functions (i.e., density, cumulative distribution,
+ quantile, and random generation) for the negative hypergeometric
+ distribution.
+*Added the Krishnamoorthy-Mathew approach for computing the upper tolerance bound for the 2-parameter
+ exponential distribution.
+*Added neghypertol.int() function for calculating tolerance limits for
+ negative hypergeometric random variables.
+*Added hypertol.int() function for calculating tolerance limits for
+ hypergeometric random variables.
+*Added new options for how the confidence intervals for the
+ binomial proportions are calculated in the bintol.int function.
+ Specifically, the methods "PR", "PO", "CL", "CC", and "CWS" have been added,
+ which are for the probit transformation, Poisson parameterization,
+ complementary log transformation, continuity corrected large sample approach,
+ and continuity corrected Wilson's approach, respectively.
+*Added new options for how the confidence intervals for the
+ Poisson rates are calculated in the poistol.int function.
+ Specifically, the methods "CC", "VS", "RVS", "FT", and "CSC" have been added,
+ which are for the continuity corrected large sample approach, the variance-
+ stabilization approach, the recentered variance stabilization approach, the
+ Freeman-Tukey method, and the continuity corrected score method, respectively.
+*Completely overhauled the negbintol.int function, which was
+ not providing good estimates.  The new version provides many
+ ways to estimate the negative binomial proportion confidence intervals,
+ similar to how the binomial and Poisson tolerance limits are constructed.
+ An article has also been submitted outlining the procedure.
+*The use of the ppois function was misspecified for the lower
+ tolerance limit in the poistol.int function.  This resulted in the 
+ reported lower limit being larger by 1 value.  This has been 
+ corrected.
+*Fixed the umatol.int function to allow the case of x = 0.
+*Fixed a small typo in the negbintol.int documentation.
+*Put maximum tolerance limits for the discrete distributions at Inf
+ instead of 0.
+
+
+#######################################
 2011-12-07 (Version 0.4.0)
 #######################################
 *Added negbintol.int() function for calculating tolerance limits for

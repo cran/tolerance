@@ -6,6 +6,9 @@ zm.ll <- function (x, N=NULL, s = 1, b = 1, dist = c("Zipf", "Zipf-Man", "Zeta")
 	if(sum(is.na(suppressWarnings(as.numeric(names(x)))))>0) names(x)=1:length(x)
 	x.labs <- as.numeric(names(x))
 	N.temp <- max(x.labs)
+	if(dist == "Zeta"){
+	N <- N.temp
+	}
 	if(is.null(N)){
 		N <- N.temp
 	}

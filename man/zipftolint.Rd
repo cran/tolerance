@@ -23,15 +23,18 @@ zipftol.int(x, N = NULL, alpha = 0.05, P = 0.99, side = 1, s = 1,
     \item{exact}{If \code{exact = TRUE}, then an ordinal ranking (based on the category labels) of the data is used.  If \code{exact = FALSE}, then a Zipfian ranking of the data will be used (i.e., the data will be arranged by the raw counts in decreasing order).}
     \item{...}{Additional arguments passed to the \code{zm.ll} function, which is used for maximum likelihood estimation.}
 }
+\note{
+This function may be updated in a future version of the package so as to allow greater flexibility with the inputs.
+} 
 \details{
 Zipf-Mandelbrot models are commonly used to model phenomena where the frequencies of categorical data are approximately inversely proportional to its rank in the frequency table. Zipf-Mandelbrot distributions are heavily right-skewed distributions with a (relatively) large mass placed on the first category.  For most practical applications, one will typically be interested in 1-sided upper bounds.
 }
 \references{
-Mandelbrot, B. B. (1965), Information Theory and Psycholinguistics. In B. B. Wolman and E. Nagel, editors. \emph{Scientific Psychology}, Basic Books.\\
+Mandelbrot, B. B. (1965), Information Theory and Psycholinguistics. In B. B. Wolman and E. Nagel, editors. \emph{Scientific Psychology}, Basic Books.
 
-Zipf, G. K. (1949), \emph{Human Behavior and the Principle of Least Effort}, Hafner.\\
+Zipf, G. K. (1949), \emph{Human Behavior and the Principle of Least Effort}, Hafner.
 
-Z\"{o}rnig, P. and Altmann, G. (1995), Unified Representation of Zipf Distributions, \emph{Computational Statistics and Data Analysis}, \bold{19}, 461--473. 
+Zornig, P. and Altmann, G. (1995), Unified Representation of Zipf Distributions, \emph{Computational Statistics and Data Analysis}, \bold{19}, 461--473. 
 }
 \value{
 \code{zipftol.int} returns a data frame with the following items:
@@ -44,8 +47,7 @@ Z\"{o}rnig, P. and Altmann, G. (1995), Unified Representation of Zipf Distributi
 		\item{\code{2-sided.lower}}{The 2-sided lower tolerance bound. This is given only if \code{side = 2.}} 
 		\item{\code{2-sided.upper}}{The 2-sided upper tolerance bound. This is given only if \code{side = 2.}} 				
 }
-\seealso{
-\code{\link{Zeta}}, \code{\link{Zipf}}, \code{\link{ZipfMandelbrot}}, \code{\link{zm.ll}}
+\seealso{\code{\link{ZipfMandelbrot}}, \code{\link{zm.ll}}
 }
 \examples{
 ## 95\%/99\% 1-sided tolerance intervals for the Zipf, 
@@ -57,14 +59,14 @@ s <- 2
 b <- 5
 N <- 50
 
-zipf.data <- rzipf(n = 500, s = s, N = N)
-zipfman.data <- rzipfman(n = 500, s = s, b = b, N = N)
-zeta.data <- rzeta(n = 200, s = s)
+zipf.data <- rzipfman(n = 150, s = s, N = N)
+zipfman.data <- rzipfman(n = 150, s = s, b = b, N = N)
+zeta.data <- rzipfman(n = 150, s = s, N = Inf)
 
 out.zipf <- zipftol.int(zipf.data, N = N, dist = "Zipf")
 out.zipfman <- zipftol.int(zipfman.data, N = N,
                            dist = "Zipf-Man")
-out.zeta <- zipftol.int(zeta.data, dist = "Zeta")
+out.zeta <- zipftol.int(zeta.data, N = Inf, dist = "Zeta")
 
 out.zipf
 out.zipfman

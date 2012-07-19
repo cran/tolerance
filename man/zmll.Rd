@@ -19,21 +19,24 @@ zm.ll(x, N = NULL, s = 1, b = 1, dist = c("Zipf", "Zipf-Man",
     \item{exact}{If \code{exact = TRUE}, then an ordinal ranking (based on the category labels) of the data is used.  If \code{exact = FALSE}, then a Zipfian ranking of the data will be used (i.e., the data will be arranged by the raw counts in decreasing order).}
     \item{...}{Additional arguments passed to the \code{mle} function.}
 }
+\note{
+This function may be updated in a future version of the package so as to allow greater flexibility with the inputs.
+} 
 \details{
 Zipf-Mandelbrot models are commonly used to model phenomena where the frequencies of categorical data are approximately inversely proportional to its rank in the frequency table.
 }
 \references{
-Mandelbrot, B. B. (1965), Information Theory and Psycholinguistics. In B. B. Wolman and E. Nagel, editors. \emph{Scientific Psychology}, Basic Books.\\
+Mandelbrot, B. B. (1965), Information Theory and Psycholinguistics. In B. B. Wolman and E. Nagel, editors. \emph{Scientific Psychology}, Basic Books.
 
-Zipf, G. K. (1949), \emph{Human Behavior and the Principle of Least Effort}, Hafner.\\
+Zipf, G. K. (1949), \emph{Human Behavior and the Principle of Least Effort}, Hafner.
 
-Z\"{o}rnig, P. and Altmann, G. (1995), Unified Representation of Zipf Distributions, \emph{Computational Statistics and Data Analysis}, \bold{19}, 461--473. 
+Zornig, P. and Altmann, G. (1995), Unified Representation of Zipf Distributions, \emph{Computational Statistics and Data Analysis}, \bold{19}, 461--473. 
 }
 \value{
 See the help file for \code{mle} to see how the output is structured.				
 }
 \seealso{
-\code{\link{mle}}, \code{\link{Zeta}}, \code{\link{Zipf}}, \code{\link{ZipfMandelbrot}}, \code{\link{zm.ll}}
+\code{\link{mle}}, \code{\link{ZipfMandelbrot}}
 }
 \examples{
 ## Maximum likelihood estimation for randomly generated data
@@ -45,7 +48,7 @@ s <- 2
 b <- 5
 N <- 50
 
-zipf.data <- rzipf(n = 500, s = s, N = N)
+zipf.data <- rzipfman(n = 500, s = s, N = N)
 out.zipf <- zm.ll(zipf.data, N = N, dist = "Zipf")
 coef(out.zipf)
 vcov(out.zipf)
@@ -55,8 +58,8 @@ out.zipfman <- zm.ll(zipfman.data, N = N, dist = "Zipf-Man")
 coef(out.zipfman)
 vcov(out.zipf)
 
-zeta.data <- rzeta(n = 200, s = s)
-out.zeta <- zm.ll(zeta.data, dist = "Zeta")
+zeta.data <- rzipfman(n = 200, s = s, N = Inf)
+out.zeta <- zm.ll(zeta.data, N = Inf, dist = "Zeta")
 coef(out.zeta)
 vcov(out.zeta)
 }

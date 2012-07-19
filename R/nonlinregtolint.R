@@ -4,12 +4,12 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
     n <- nrow(xy.data)
     form <- as.formula(formula)
     out <- try(suppressWarnings(nls(formula = form, data = xy.data, 
-        control = list(maxiter = maxiter, warnOnly = TRUE), 
-        ...)), silent = TRUE)
+        control = list(maxiter = maxiter, warnOnly = TRUE), ...)), 
+        silent = TRUE)
     test.sig <- class(try(summary(out)$sigma, silent = TRUE))
-    if(test.sig=="try-error"){
-        stop(paste("Error in nls routine.  Consider different starting estimates 
-	of the parameters.  Type help(nls) for more options."),call.=FALSE)
+    if (test.sig == "try-error") {
+        stop(paste("Error in nls routine.  Consider different starting estimates \n\tof the parameters.  Type help(nls) for more options."), 
+            call. = FALSE)
     }
     sigma <- summary(out)$sigma
     beta.hat <- coef(out)
@@ -43,8 +43,8 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
     y.hat <- predict(out, newdata = xy.data)
     n.star <- rep(NULL, nrow(xy.data))
     for (i in 1:nrow(xy.data)) {
-        n.star[i] <- c(as.numeric((t(P.mat[i, ]) %*% PTP %*% t(t(P.mat[i, 
-            ])))))
+        n.star[i] <- c(as.numeric((t(P.mat[i, ]) %*% PTP %*% 
+            t(t(P.mat[i, ])))))
     }
     n.star <- n.star^(-1)
     detach(temp)
@@ -65,7 +65,7 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
             "1-sided.upper")
     }
     else {
-	K <- sqrt(df * qchisq(P, 1, 1/n.star)/qchisq(alpha, df))
+        K <- sqrt(df * qchisq(P, 1, 1/n.star)/qchisq(alpha, df))
         upper <- y.hat + sigma * K
         lower <- y.hat - sigma * K
         temp <- data.frame(cbind(alpha, P, y.hat, xy.data[, 1], 

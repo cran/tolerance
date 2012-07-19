@@ -3,7 +3,7 @@
 \alias{exp2tol.int}
 \usage{
 exp2tol.int(x, alpha = 0.05, P = 0.99, side = 1,
-            method = c("GPU", "DUN"), type.2 = FALSE)
+            method = c("GPU", "DUN", "KM"), type.2 = FALSE)
 }
 \description{
   Provides 1-sided or 2-sided tolerance intervals for data distributed according to a 2-parameter
@@ -17,8 +17,8 @@ exp2tol.int(x, alpha = 0.05, P = 0.99, side = 1,
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
   respectively).}
   \item{method}{The method for how the upper tolerance bound is approximated.  \code{"GPU"} is the
-  Guenther-Patil-Upppuluri method. \code{"DUN"} is the Dunsmore method, which was empirically shown to be an improvement
-  for samples greater than or equal to 8.  More information on these methods can be found in the "References".}
+  Guenther-Patil-Upppuluri method. \code{"DUN"} is the Dunsmore method, which has been empirically shown to be an improvement
+  for samples greater than or equal to 8.  \code{"KM"} is the Krishnamoorthy-Mathew method, which is typically more liberal than the other methods. More information on these methods can be found in the "References", which also highlight general sample size conditions as to when these different methods should be used.}
   \item{type.2}{Select \code{TRUE} if Type II censoring is present (i.e., the data set is censored at the maximum
   value present).  The default is \code{FALSE}.} 
 } \value{
@@ -42,6 +42,8 @@ exp2tol.int(x, alpha = 0.05, P = 0.99, side = 1,
   
   Guenther, W. C., Patil, S. A., and Uppuluri, V. R. R. (1976), One-Sided \eqn{\beta}-Content Tolerance Factors
   for the Two Parameter Exponential Distribution, \emph{Technometrics}, \bold{18}, 333--340.  
+
+  Krishnamoorthy, K. and Mathew, T. (2009), \emph{Statistical Tolerance Regions: Theory, Applications, and Computation}, Wiley.
 } 
 
 \examples{ 
