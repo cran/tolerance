@@ -1,5 +1,5 @@
 \name{diffnormtol.int}
-\title{1-Sided Tolerance Limits for the Distribution of the Difference Between Two Independent Random Variables}
+\title{1-Sided Tolerance Limits for the Distribution of the Difference Between Two Independent Normal Random Variables}
 \alias{diffnormtol.int}
 \usage{
 diffnormtol.int(x1, x2, var.ratio = NULL, alpha = 0.05, 

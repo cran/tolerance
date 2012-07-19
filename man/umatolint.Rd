@@ -12,8 +12,7 @@ umatol.int(x, n = NULL, dist = c("Bin", "NegBin", "Pois"), N,
 \arguments{
   \item{x}{A vector of data which is distributed according to one of the binomial, negative binomial, or Poisson distributions.
   If the length of \code{x} is 1, then it is assumed that this number is the sum of iid values from the assumed distribution.}
-  \item{n}{The sample size of the data.  If \code{null}, then \code{n} is calculated as the length of \code{x}.
-  If the length of \code{x} is 1, then \code{n} must be a specified positive integer.}
+  \item{n}{The sample size of the data.  If \code{null}, then \code{n} is calculated as the length of \code{x}.}
   \item{dist}{The distribution for the data given by \code{x}.  The options are \code{"Bin"} for the binomial distribution,
   \code{"NegBin"} for the negative binomial distribution, and \code{"Pois"} for the Poisson distribution.}
   \item{N}{Must be specified for the binomial and negative binomial distributions.  If \code{dist = "Bin"}, then \code{N}

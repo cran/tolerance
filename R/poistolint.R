@@ -1,16 +1,18 @@
-poistol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("TAB", 
-    "LS", "SC")) 
+poistol.int <- function (x, n, m = NULL, alpha = 0.05, P = 0.99, side = 1, method = c("TAB", 
+    "LS", "SC", "CC", "VS", "RVS", "FT", "CSC")) 
 {
     if (side != 1 && side != 2) {
         stop(paste("Must specify a one-sided or two-sided procedure!", 
             "\n"))
     }
     method <- match.arg(method)
-    if(length(x) > 1) x <- sum(x)
+    if (length(x) > 1) 
+        x <- sum(x)
     if (side == 2) {
         alpha <- alpha/2
         P <- (P + 1)/2
     }
+    if(is.null(m)) m <- n
     if (method == "TAB") {
         lower.lambda <- 0.5 * qchisq(alpha, df = (2 * x))/n
         upper.lambda <- 0.5 * qchisq(1 - alpha, df = (2 * x + 
@@ -21,38 +23,45 @@ poistol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("
         upper.lambda <- (x/n) + (qnorm(1 - alpha) * sqrt(x))/n
     }
     if (method == "SC") {
-	  k <- qnorm(1 - alpha)
-        lower.lambda <- (x/n) + (k^2/(2*n)) - (k/sqrt(n))*sqrt((x/n)+(k^2/(4*n)))
-        upper.lambda <- (x/n) + (k^2/(2*n)) + (k/sqrt(n))*sqrt((x/n)+(k^2/(4*n)))
+        k <- qnorm(1 - alpha)
+        lower.lambda <- (x/n) + (k^2/(2 * n)) - (k/sqrt(n)) * 
+            sqrt((x/n) + (k^2/(4 * n)))
+        upper.lambda <- (x/n) + (k^2/(2 * n)) + (k/sqrt(n)) * 
+            sqrt((x/n) + (k^2/(4 * n)))
     }
-    f1 <- function(J, m, P, lambda1) ppois((J - 1), lambda = (m * 
-        lambda1), lower.tail = FALSE) - P
-    f2 <- function(J, m, P, lambda1) ppois(J, lambda = (m * lambda1)) - 
-        P
-    lower <- try(floor(uniroot(f1, interval = c(0, 1e+101), m = m, 
-        P = P, lambda1 = lower.lambda)$root), silent = TRUE)
-    upper <- try(floor(uniroot(f2, interval = c(0, 1e+101), m = m, 
-        P = P, lambda1 = upper.lambda)$root), silent = TRUE)
-    if (class(lower) == "try-error") {
-        lower <- 0
+    if (method == "CC") {
+        lower.lambda <- (x/n) - (qnorm(1 - alpha) * sqrt(x)/n + 0.5/n)
+        upper.lambda <- (x/n) + (qnorm(1 - alpha) * sqrt(x)/n + 0.5/n)
     }
-    else {
-        J1.temp <- lower + c(-15:15)
-        J1 <- cbind(J1.temp, f1(J1.temp, m, P, lower.lambda))
-        J1.ind <- (J1[, 2] >= 0 & J1[, 1] >= 0)
-        J1 <- matrix(J1[J1.ind, ], ncol = 2)
-        lower <- J1[which.min(J1[, 2]), 1]
+    if (method == "VS") {
+        k <- qnorm(1 - alpha)
+        lower.lambda <- (x/n) + (k^2/(4 * n)) - (k*sqrt(x)/n)
+        upper.lambda <- (x/n) + (k^2/(4 * n)) + (k*sqrt(x)/n)
     }
-    if (class(upper) == "try-error") {
-        upper <- 0
+    if (method == "RVS") {
+        k <- qnorm(1 - alpha)
+        lower.lambda <- (x/n) + (k^2/(4 * n)) - (k*sqrt((x/n+3/8)/n))
+        upper.lambda <- (x/n) + (k^2/(4 * n)) + (k*sqrt((x/n+3/8)/n))
     }
-    else {
-        J2.temp <- upper + c(-15:15)
-        J2 <- cbind(J2.temp, f2(J2.temp, m, P, upper.lambda))
-        J2.ind <- (J2[, 2] >= 0 & J2[, 1] >= 0)
-        J2 <- matrix(J2[J2.ind, ], ncol = 2)
-        upper <- J2[which.min(J2[, 2]), 1]
+    if (method == "FT") {
+	  g <- function(z) ((z^2 - 1)/(2*z))^2
+        k <- qnorm(1 - alpha)
+	  TEMP.L <- sqrt(x/n) + sqrt((x/n) + 1) - k*(1/sqrt(n))
+	  TEMP.U <- sqrt(x/n) + sqrt((x/n) + 1) + k*(1/sqrt(n))
+	  if(TEMP.L >= 1){
+		lower.lambda <- g(TEMP.L)
+	  } else lower.lambda <- 0
+        upper.lambda <- g(TEMP.U)
     }
+    if (method == "CSC") {
+        k <- qnorm(1 - alpha)
+	  lam <- x/n
+        lower.lambda <- lam - (1/(2*n)) + k^2/(2*n) - sqrt((lam-1/(2*n)+k^2/(2*n))^2-lam^2+lam/n-1/(4*n^2))
+        upper.lambda <- lam + (1/(2*n)) + k^2/(2*n) + sqrt((lam+1/(2*n)+k^2/(2*n))^2-lam^2-lam/n-1/(4*n^2))
+    }
+    lower.lambda <- max(0,lower.lambda)
+    lower <- qpois(1-P, lambda = (m*lower.lambda))
+    upper <- qpois(P, lambda = (m*upper.lambda))
     if (side == 2) {
         alpha <- 2 * alpha
         P <- (2 * P) - 1
@@ -68,3 +77,5 @@ poistol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("
     }
     temp
 }
+
+

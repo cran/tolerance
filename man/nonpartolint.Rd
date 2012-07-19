@@ -19,7 +19,7 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
   respectively).}
   \item{method}{The method for determining which indices of the ordered observations will be used for the tolerance intervals.  
-  \code{"WILKS"} is the Wilks method, which produces tolerance bounds symmetric about the observed center of the residuals by using
+  \code{"WILKS"} is the Wilks method, which produces tolerance bounds symmetric about the observed center of the data by using
   the beta distribution.  \code{"WALD"} is the Wald method, which produces (possibly) multiple tolerance bounds for \code{side = 2} (each
   having at least the specified confidence level), but is the same as \code{method = "WILKS"} for \code{side = 1}.  \code{"HM"} is
   the Hahn-Meeker method, which is based on the binomial distribution, but the upper and lower bounds may exceed the minimum and maximum

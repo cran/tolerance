@@ -1,4 +1,4 @@
-zipftol.int <- function (x, N=NULL, alpha = 0.05, P = 0.99, side = 1, 
+zipftol.int <- function (x, N = NULL, alpha = 0.05, P = 0.99, side = 1, 
 s = 1, b = 1, dist = c("Zipf", "Zipf-Man", "Zeta"), exact = TRUE, ...) {
     dist = match.arg(dist)
     if (side != 1 && side != 2) {
@@ -10,7 +10,7 @@ s = 1, b = 1, dist = c("Zipf", "Zipf-Man", "Zeta"), exact = TRUE, ...) {
         P <- (P + 1)/2
     }
 
-fit <- zm.ll(x=x, N=N, s = s, b = b, dist = dist, exact = exact, ...)
+fit <- zm.ll(x = x, N = N, s = s, b = b, dist = dist, exact = exact, ...)
 
 if(class(x)!="table"){ 
 x=table(x)
@@ -29,8 +29,8 @@ CI <- s.hat + c(-1,1)*qnorm(1-alpha)*s.se
 lower.s <- max(CI[1],0)
 upper.s <- CI[2]
 
-    f1 <- function(J, N, P, s.hat) 1 - pzipf(q = J, N = N, s = s.hat) - P
-    f2 <- function(J, N, P, s.hat) pzipf(q = J, N = N, s = s.hat) - P
+    f1 <- function(J, N, P, s.hat) 1 - pzipfman(q = J, N = N, s = s.hat) - P
+    f2 <- function(J, N, P, s.hat) pzipfman(q = J, N = N, s = s.hat) - P
 
 lower <- try(floor(uniroot(f1, interval = c(1, N), N = N, 
         P = P, s.hat = upper.s)$root), silent = TRUE)
@@ -54,21 +54,21 @@ upper.b <- b.CI[2]
     f4 <- function(J, N, P, s.hat, b.hat) pzipfman(q = J, N = N, s = s.hat, b = b.hat) - P
 
 lower <- try(floor(uniroot(f3, interval = c(1, N), N = N, 
-        P = P, s.hat = upper.s, b.hat=lower.b)$root), silent = TRUE)
+        P = P, s.hat = upper.s, b.hat = lower.b)$root), silent = TRUE)
 upper <- try(floor(uniroot(f4, interval = c(1, N), N = N, 
-        P = P, s.hat = lower.s, b.hat=upper.b)$root), silent = TRUE)
+        P = P, s.hat = lower.s, b.hat = upper.b)$root), silent = TRUE)
 }
 
 if(dist=="Zeta"){
+N <- N.temp
 s.hat <- as.numeric(coef(fit))
 s.se <- sqrt(as.numeric(vcov(fit)))
 CI <- s.hat + c(-1,1)*qnorm(1-alpha)*s.se
 lower.s <- max(CI[1],0)
 upper.s <- CI[2]
 
-    f5 <- function(J, P, s.hat) 1 - pzeta(q = J, s = s.hat) - P
-    f6 <- function(J, P, s.hat) pzeta(q = J, s = s.hat) - P
-
+    f5 <- function(J, P, s.hat) 1 - pzipfman(q = J, s = s.hat, N = Inf) - P
+    f6 <- function(J, P, s.hat) pzipfman(q = J, s = s.hat, N = Inf) - P
 lower <- try(floor(uniroot(f5, interval = c(1, 1000*N), 
         P = P, s.hat = upper.s)$root), silent = TRUE)
 upper <- try(floor(uniroot(f6, interval = c(1, 1000*N),  

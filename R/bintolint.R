@@ -1,6 +1,5 @@
-
-bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("LS", 
-    "WS", "AC", "JF", "CP", "AS", "LO"), a1 = 0.5, a2 = 0.5) 
+bintol.int <- function (x, n, m = NULL, alpha = 0.05, P = 0.99, side = 1, method = c("LS", 
+    "WS", "AC", "JF", "CP", "AS", "LO", "PR", "PO", "CL", "CC", "CWS"), a1 = 0.5, a2 = 0.5) 
 {
     if (side != 1 && side != 2) {
         stop(paste("Must specify a one-sided or two-sided procedure!", 
@@ -11,12 +10,14 @@ bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("L
         P <- (P + 1)/2
     }
     method <- match.arg(method)
-    if(length(x) > 1) x <- sum(x)
+    if (length(x) > 1) 
+        x <- sum(x)
     p.hat <- x/n
     k <- qnorm(1 - alpha)
     x.tilde <- (x + k^2/2)
     n.tilde <- n + k^2
     p.tilde <- x.tilde/n.tilde
+    if(is.null(m)) m <- n
     if (method == "LS") {
         lower.p <- p.hat - k * sqrt(p.hat * (1 - p.hat)/n)
         upper.p <- p.hat + k * sqrt(p.hat * (1 - p.hat)/n)
@@ -59,37 +60,40 @@ bintol.int <- function (x, n, m, alpha = 0.05, P = 0.99, side = 1, method = c("L
         lower.p <- exp(lower.lambda)/(1 + exp(lower.lambda))
         upper.p <- exp(upper.lambda)/(1 + exp(upper.lambda))
     }
-    f1 <- function(J, m1, P, p1) pbinom(J, size = m1, prob = p1, 
-        lower.tail = FALSE) - P
-    f2 <- function(J, m1, P, p1) pbinom(J, size = m1, prob = p1) - 
-        P
-    lower.p <- max(0, lower.p)
-    upper.p <- min(upper.p, 1)
-    lower <- try(floor(uniroot(f1, interval = c(0, 1e+11), m1 = m, 
-        P = P, p1 = lower.p)$root), silent = TRUE)
-    upper <- try(floor(uniroot(f2, interval = c(0, 1e+11), m1 = m, 
-        P = P, p1 = upper.p)$root), silent = TRUE)
-    if (class(lower) == "try-error") {
-        lower <- 0
+    else if (method == "PR") {
+	  z.hat <- qnorm(p.hat)
+	  TEMP <- pnorm(z.hat+c(-1,1)*k*sqrt((p.hat*(1-p.hat))/(n*dnorm(z.hat)^2)))
+	  lower.p <- TEMP[1]
+	  upper.p <- TEMP[2]
     }
-    else {
-        J1.temp <- lower + c(-15:15)
-        J1 <- cbind(J1.temp, f1(J1.temp, m, P, lower.p))
-        J1.ind <- (J1[, 2] >= 0 & J1[, 1] >= 0)
-        J1 <- matrix(J1[J1.ind, ], ncol = 2)
-        lower <- J1[which.min(J1[, 2]), 1]
+    else if (method == "PO") {
+	  mu.hat <- (-log(p.hat))
+          TEMP <- exp(-(mu.hat + c(-1,1)*k*sqrt((1-p.hat)/(n*p.hat))))
+	  lower.p <- TEMP[2]
+	  upper.p <- TEMP[1]
     }
-    if (class(upper) == "try-error") {
-        upper <- 0
+    else if (method == "CL") {
+	  mu.hat <- -log(p.hat)
+	  gamma.hat <- log(mu.hat)
+          TEMP <- exp(-exp(gamma.hat + c(-1,1)*k*sqrt((1-p.hat)/(n*p.hat*mu.hat^2))))
+	  lower.p <- TEMP[2]
+	  upper.p <- TEMP[1]
     }
-    else {
-        J2.temp <- upper + c(-15:15)
-        J2 <- cbind(J2.temp, f2(J2.temp, m, P, upper.p))
-        J2.ind <- (J2[, 2] >= 0 & J2[, 1] >= 0)
-        J2 <- matrix(J2[J2.ind, ], ncol = 2)
-        upper <- J2[which.min(J2[, 2]), 1]
+    if (method == "CC") {
+        lower.p <- p.hat - k * sqrt(p.hat * (1 - p.hat)/n) - 1/(2*n)
+        upper.p <- p.hat + k * sqrt(p.hat * (1 - p.hat)/n) + 1/(2*n)
     }
-    if (side == 2) {
+    else if (method == "CWS") {
+        lower.p <- (2*n*p.hat + k^2 - 1 - k*sqrt(k^2 - 2 - (1/n) + 
+		4*p.hat*(n*(1-p.hat) + 1)))/(2*(n + k^2))
+        upper.p <- (2*n*p.hat + k^2 + 1 + k*sqrt(k^2 + 2 - (1/n) + 
+		4*p.hat*(n*(1-p.hat) - 1)))/(2*(n + k^2))
+    }
+    lower.p <- max(0,lower.p)
+    upper.p <- min(upper.p,1)
+    lower <- qbinom(1-P, size = m, prob = lower.p)
+    upper <- qbinom(P, size = m, prob = upper.p)    
+	if (side == 2) {
         alpha <- 2 * alpha
         P <- (2 * P) - 1
     }
