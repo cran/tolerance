@@ -13,8 +13,8 @@ are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} 
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 0.5.0\cr
-Date: \tab 2012-07-19\cr
+Version: \tab 0.5.1\cr
+Date: \tab 2012-08-28\cr
 Depends \tab rgl, stats4\cr
 License: \tab GPL (>= 2)\cr
 }

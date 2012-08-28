@@ -1,4 +1,21 @@
 #######################################
+2012-08-28 (Version 0.5.1)
+#######################################
+*The functions related to Zipf-Mandelbrot distributions have been updated. The distribution functions (i.e.,
+ qzipfman, pzipfman, dzipfman, and rzipfman) have all been updated to be more efficient.  Moreover, there were
+ some computational issues for extreme quantiles in these functions.  Namely, negative density values would
+ be returned.  There have been corrections for these bugs, plus I have included an interpolation procedure
+ when calculating very large quantities for the zeta distribution.  Deleted the "exact" option in the respective functions.
+*The zipftol.int function has been updated to include the changes in the distribution functions.  There is
+ also a new argument that allows the user to specify how to handle ties.  Namely, if the limit is calculated at
+ a category that has the same frequency as other adjacent categories, then you can either take the most extreme of those
+ tied categories (which would be the lowest of the tied categories for the lower limit and the highest of the tied categories
+ for the upper limit) or simply take the category that was estimated by the procedure.  This latter approach would only be used
+ if there is some scientific knowledge that could basically guide the user with setting an ordinal ranking of the tied
+ categories.
+
+
+#######################################
 2012-07-19 (Version 0.5.0)
 #######################################
 *Added code for using a fiducial approach to estimate tolerance intervals for the function of 
