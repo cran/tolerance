@@ -8,15 +8,14 @@ Performs maximum likelihood estimation for the parameters of the Zipf, Zipf-Mand
 }
 \usage{
 zm.ll(x, N = NULL, s = 1, b = 1, dist = c("Zipf", "Zipf-Man", 
-      "Zeta"), exact = TRUE, ...) 
+      "Zeta"), ...) 
 }
 \arguments{
-    \item{x}{A vector or table of counts which is distributed according to a Zipf, Zipf-Mandelbrot, or zeta distribution.}
+    \item{x}{A vector of raw data or a table of counts which is distributed according to a Zipf, Zipf-Mandelbrot, or zeta distribution. Do not supply a vector of counts!}
     \item{N}{The number of categories when \code{dist = "Zipf"} or \code{dist = "Zipf-Man"}.  This is not used when \code{dist = "Zeta"}.  If \code{N = NULL}, then \code{N} is estimated based on the number of categories observed in the data.}
     \item{s}{The initial value to estimate the shape parameter, which is set to 1 by default.  If a poor initial value is specified, then a \code{WARNING} message is returned.}
     \item{b}{The initial value to estimate the second shape parameter when \code{dist = "Zipf-Man"}, which is set to 1 by default. If a poor initial value is specified, then a \code{WARNING} message is returned.}
     \item{dist}{Options are \code{dist = "Zipf"}, \code{dist = "Zipf-Man"}, or \code{dist = "Zeta"} if the data is distributed according to the Zipf, Zipf-Mandelbrot, or zeta distribution, respectively.}
-    \item{exact}{If \code{exact = TRUE}, then an ordinal ranking (based on the category labels) of the data is used.  If \code{exact = FALSE}, then a Zipfian ranking of the data will be used (i.e., the data will be arranged by the raw counts in decreasing order).}
     \item{...}{Additional arguments passed to the \code{mle} function.}
 }
 \note{
@@ -56,7 +55,7 @@ vcov(out.zipf)
 zipfman.data <- rzipfman(n = 500, s = s, b = b, N = N)
 out.zipfman <- zm.ll(zipfman.data, N = N, dist = "Zipf-Man")
 coef(out.zipfman)
-vcov(out.zipf)
+diag(vcov(out.zipfman))
 
 zeta.data <- rzipfman(n = 200, s = s, N = Inf)
 out.zeta <- zm.ll(zeta.data, N = Inf, dist = "Zeta")

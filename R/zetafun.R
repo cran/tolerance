@@ -1,14 +1,14 @@
 #Internal Function
 
-zeta.fun <- function(x) 
+zeta.fun <- function (x) 
 {
-    if (any(x < 1)) stop("Invalid input for Riemann's zeta function.","\n")
+    if (any(x < 1)) 
+        stop("Invalid input for Riemann's zeta function.", "\n")
     a = 12
     k = 8
     B = c(1/6, -1/30, 1/42, -1/30, 5/66, -691/2730, 7/6, -3617/510)
     ans = 0
-#    for (ii in 1:(a - 1)) ans = ans + 1/ii^x
-	ans = sum(1/c(1:(a - 1))^x)
+    ans = sum(1/c(1:(a - 1))^x)
     ans = ans + 1/((x - 1) * a^(x - 1)) + 1/(2 * a^x)
     term = (x/2)/a^(x + 1)
     ans = ans + term * B[1]

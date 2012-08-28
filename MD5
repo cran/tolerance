@@ -1,6 +1,6 @@
-b5615dbccd049479a319d90b32c00c20 *DESCRIPTION
+11da93b7d93da9665c89ec97f62dece9 *DESCRIPTION
 829cfe9a18debd8b2adddcdc564767fc *NAMESPACE
-235cf425934d9b2c859c5024c97ebef0 *NEWS
+bc89e916ac5d6859edea9260de54bb28 *NEWS
 3d8c07d39120556283ec12576f186959 *R/F1.R
 b4859c984c163c02775ddc0881e271bc *R/Kfactor.R
 001b29c1276ac1fcf2025205bb41b3ab *R/Ktable.R
@@ -41,10 +41,10 @@ cdb4a05f0b2d437de2c7b183b92ec848 *R/poistolint.R
 4b98bd6f0adf76084ceb32bf2e03d5ce *R/rwishart.R
 e1f660f8ff6148466e9b21fdcfd623b0 *R/uma.R
 8ee8ecbc87cf7f7874fc88b3d2881424 *R/uniftolint.R
-05ab5d817cadb95825e3efb225ceadaf *R/zetafun.R
-48a8ac5207609e362f78fb8df7e05857 *R/zipfman.R
-d89fa1ef3c61787bff5e33926ac9fa6d *R/zipftolint.R
-e8dbf1e3afdb4afe00773adec2c9fdb3 *R/zmll.R
+5751ca7ab63188e0933de3d55b525808 *R/zetafun.R
+ced9c4ca3709f16e6060a215c08c4260 *R/zipfman.R
+deb9c4f34270461a88e9a73cf7618e23 *R/zipftolint.R
+7371d776b0bbe8673bf5ee72e4eb7b49 *R/zmll.R
 1ca485f43ee4537b32d2d308d613e044 *inst/CITATION
 86178ccc2e978a7e1260aed12c181f26 *man/2ParExponential.Rd
 36b77c51e89a5e75e1341e8d383c7930 *man/F1.Rd
@@ -71,7 +71,7 @@ fac54446674cb95748f3f3cb2ba762a9 *man/laptolint.Rd
 0bfc2f085549f9184edec8c889260948 *man/logistolint.Rd
 299e05fefa76a863dcfce4fe46bc5c77 *man/mvregtolregion.Rd
 91ca41c1a459f8b275593f079cf222cd *man/mvtolregion.Rd
-7c1ea9a84e50cc8db0bd5781ede00f5d *man/negbintolint.Rd
+831746b76187129fd8248ce7050877b5 *man/negbintolint.Rd
 9d190cb527b184305425abbf6fdb90a9 *man/neghypertolint.Rd
 266d5059adc94ba3cd99c1735329f6fd *man/nonlinregtolint.Rd
 09a4659dfb50b33b3ccdd29866d63429 *man/nonparregtolint.Rd
@@ -83,9 +83,9 @@ a3df8b9cbf916b17fd06a6abd79dfc62 *man/nporder.Rd
 2fe746bc3cd6446cdf9233d2bcf84276 *man/poistolint.Rd
 f24fd1142c19704403087500d4a944b6 *man/regtolint.Rd
 278341a12104538199fb98664120caa3 *man/tolerance-internal.Rd
-765be92aa725a4c1ea4e4e9a7e47694b *man/tolerance.package.Rd
+8b8c05f38a4275b2be72f3f12340d20f *man/tolerance.package.Rd
 f20e2281d5b4fc3bdf8afe5e558ef7e7 *man/umatolint.Rd
 37d1049f6536d76b55ba6d7a9b51ce2c *man/uniftolint.Rd
 f969ddfa89b6ffb8eb683852e2c80efa *man/zipfman.Rd
-d0f2252398b6b401b3a9e298e91f3f63 *man/zipftolint.Rd
-13264188e745f41b1130906b7073cb9b *man/zmll.Rd
+263c8682eccf03ce771bfc0291864681 *man/zipftolint.Rd
+4338f7e498ca41202e6c86cd3f5402e3 *man/zmll.Rd

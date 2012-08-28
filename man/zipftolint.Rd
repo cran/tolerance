@@ -7,12 +7,13 @@ Zipf-Mandelbrot Tolerance Intervals
 Provides 1-sided or 2-sided tolerance intervals for data distributed according to Zipf, Zipf-Mandelbrot, and zeta distributions. 
 }
 \usage{
-zipftol.int(x, N = NULL, alpha = 0.05, P = 0.99, side = 1, s = 1,
-            b = 1, dist = c("Zipf", "Zipf-Man", "Zeta"),
-            exact = TRUE, ...) 
+zipftol.int(x, m = NULL, N = NULL, alpha = 0.05, P = 0.99, 
+            side = 1, s = 1, b = 1, dist = c("Zipf", 
+            "Zipf-Man", "Zeta"), ties = FALSE, ...) 
 }
 \arguments{
-    \item{x}{A vector or table of counts which is distributed according to a Zipf, Zipf-Mandelbrot, or zeta distribution.}
+    \item{x}{A vector of raw data or a table of counts which is distributed according to a Zipf, Zipf-Mandelbrot, or zeta distribution. Do not supply a vector of counts!}
+	\item{m}{The number of observations in a future sample for which the tolerance limits will be calculated.  By default, \code{m = NULL} and, thus, \code{m} will be set equal to the original sample size.}
     \item{N}{The number of categories when \code{dist = "Zipf"} or \code{dist = "Zipf-Man"}.  This is not used when \code{dist = "Zeta"}.  If \code{N = NULL}, then \code{N} is estimated based on the number of categories observed in the data.}
     \item{alpha}{The level chosen such that 1-alpha is the confidence level.}
     \item{P}{The proportion of the population to be covered by this tolerance interval.}
@@ -20,7 +21,7 @@ zipftol.int(x, N = NULL, alpha = 0.05, P = 0.99, side = 1, s = 1,
     \item{s}{The initial value to estimate the shape parameter in the \code{zm.ll} function.}
     \item{b}{The initial value to estimate the second shape parameter in the \code{zm.ll} function when \code{dist = "Zipf-Man"}.}
     \item{dist}{Options are \code{dist = "Zipf"}, \code{dist = "Zipf-Man"}, or \code{dist = "Zeta"} if the data is distributed according to the Zipf, Zipf-Mandelbrot, or zeta distribution, respectively.}
-    \item{exact}{If \code{exact = TRUE}, then an ordinal ranking (based on the category labels) of the data is used.  If \code{exact = FALSE}, then a Zipfian ranking of the data will be used (i.e., the data will be arranged by the raw counts in decreasing order).}
+    \item{ties}{How to handle if there are other categories with the same frequency as the category at the estimated tolerance limit.  The default is \code{FALSE}, which does no correction.  If \code{TRUE}, then the highest ranked (i.e., lowest number) of the tied categories is selected for the lower limit and the lowest ranked (i.e., highest number) of the tied categories is selected for the upper limit.}
     \item{...}{Additional arguments passed to the \code{zm.ll} function, which is used for maximum likelihood estimation.}
 }
 \note{
@@ -63,9 +64,8 @@ zipf.data <- rzipfman(n = 150, s = s, N = N)
 zipfman.data <- rzipfman(n = 150, s = s, b = b, N = N)
 zeta.data <- rzipfman(n = 150, s = s, N = Inf)
 
-out.zipf <- zipftol.int(zipf.data, N = N, dist = "Zipf")
-out.zipfman <- zipftol.int(zipfman.data, N = N,
-                           dist = "Zipf-Man")
+out.zipf <- zipftol.int(zipf.data, dist = "Zipf")
+out.zipfman <- zipftol.int(zipfman.data, dist = "Zipf-Man")
 out.zeta <- zipftol.int(zeta.data, N = Inf, dist = "Zeta")
 
 out.zipf
