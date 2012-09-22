@@ -1,9 +1,9 @@
-11da93b7d93da9665c89ec97f62dece9 *DESCRIPTION
+c240cdcc888d401fa673847d36eeb7b2 *DESCRIPTION
 829cfe9a18debd8b2adddcdc564767fc *NAMESPACE
-bc89e916ac5d6859edea9260de54bb28 *NEWS
+1467dee4d1efe88eb88330526e3fd2e1 *NEWS
 3d8c07d39120556283ec12576f186959 *R/F1.R
 b4859c984c163c02775ddc0881e271bc *R/Kfactor.R
-001b29c1276ac1fcf2025205bb41b3ab *R/Ktable.R
+df578f20194abc49270f40c50fdc723b *R/Ktable.R
 3b8df74bbcec553f234b066d5673f508 *R/accsamp.R
 7cb141b6e06cc6297774ac5bbd015a3c *R/anovatol.R
 e75275145e8c56db2a9ac737e186cf3c *R/bintolint.R
@@ -24,7 +24,7 @@ c9931323c487fad596165fbba59d6b43 *R/hypertolint.R
 286cb655030f0a999671e8131f0d8e7a *R/laptolint.R
 6d6d6f6b7d46c3296664aab4a7fa20a6 *R/logistolint.R
 a2cc13ef2b7c90d91f264a0d1912aaa9 *R/mvregtolregion.R
-8e483ce1aa35a7de8161ac32de5fbb8f *R/mvtolregion.R
+73f956b91c2a5e63a2d3dc43f5a21dd8 *R/mvtolregion.R
 8c3ec85a13a7dd587f57f63694b6acfb *R/negbintolint.R
 cd9f4273bf9eda753bc7007e2549b41b *R/neghyper.R
 393fd9fbbe216f13593f0742ea529285 *R/neghypertolint.R
@@ -70,7 +70,7 @@ e8481efb8541ce812cbcdfd7b448ce18 *man/gammatolint.Rd
 fac54446674cb95748f3f3cb2ba762a9 *man/laptolint.Rd
 0bfc2f085549f9184edec8c889260948 *man/logistolint.Rd
 299e05fefa76a863dcfce4fe46bc5c77 *man/mvregtolregion.Rd
-91ca41c1a459f8b275593f079cf222cd *man/mvtolregion.Rd
+4b25a128e34777724642841dd19e6094 *man/mvtolregion.Rd
 831746b76187129fd8248ce7050877b5 *man/negbintolint.Rd
 9d190cb527b184305425abbf6fdb90a9 *man/neghypertolint.Rd
 266d5059adc94ba3cd99c1735329f6fd *man/nonlinregtolint.Rd
@@ -83,7 +83,7 @@ a3df8b9cbf916b17fd06a6abd79dfc62 *man/nporder.Rd
 2fe746bc3cd6446cdf9233d2bcf84276 *man/poistolint.Rd
 f24fd1142c19704403087500d4a944b6 *man/regtolint.Rd
 278341a12104538199fb98664120caa3 *man/tolerance-internal.Rd
-8b8c05f38a4275b2be72f3f12340d20f *man/tolerance.package.Rd
+288774470c61a5b1b5f6a71d13d34dd6 *man/tolerance.package.Rd
 f20e2281d5b4fc3bdf8afe5e558ef7e7 *man/umatolint.Rd
 37d1049f6536d76b55ba6d7a9b51ce2c *man/uniftolint.Rd
 f969ddfa89b6ffb8eb683852e2c80efa *man/zipfman.Rd

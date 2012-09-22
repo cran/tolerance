@@ -31,7 +31,7 @@ K.table <- function (n, alpha, P, side = 1, f = NULL, by.arg = c("n", "alpha",
             for (i in 1:n.a) {
                 t1 <- NULL
                 for (j in 1:n.P) {
-                  t1 <- c(t1, K.factor(n[l], alpha[j], P[j], side = side, 
+                  t1 <- c(t1, K.factor(n[l], alpha[i], P[j], side = side, 
                     method = "HE", f = f))
                 }
                 temp <- rbind(temp, t1)
