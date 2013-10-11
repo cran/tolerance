@@ -51,7 +51,7 @@ Nadarajah, S. and Kotz, S. (2007), Statistical Distribution of the Difference of
 ## two proportions distribution.
 
 set.seed(100)
-x <- rdiffprop(n = 500, k1 = 2, k2 = 10, n1 = 17, n2 = 13)
+x <- rdiffprop(n = 100, k1 = 2, k2 = 10, n1 = 17, n2 = 13)
 hist(x, main = "Randomly Generated Data", prob = TRUE)
 
 x.1 <- sort(x)

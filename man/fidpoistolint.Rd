@@ -32,6 +32,8 @@ If \eqn{X} is observed from a \eqn{Poi(n*\lambda)} distribution, then the fiduci
 Cox, D. R. (1953), Some Simple Approximate Tests for Poisson Variates, \emph{Biometrika}, \bold{40}, 354--360.
 
 Krishnamoorthy, K. and Lee, M. (2010), Inference for Functions of Parameters in Discrete Distributions Based on Fiducial Approach: Binomial and Poisson Cases, \emph{Journal of Statistical Planning and Inference}, \bold{140}, 1182--1192.
+
+Mathew, T. and Young, D. S. (2013), Fiducial-Based Tolerance Intervals for Some Discrete Distributions, \emph{Computational Statistics and Data Analysis}, \bold{61}, 38--49.
 }
 \value{
 \code{fidpoistol.int} returns a list with two items.  The first item (\code{tol.limits}) is a data frame with the following items:

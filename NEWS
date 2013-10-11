@@ -1,4 +1,14 @@
 #######################################
+2013-10-11 (Version 0.5.3)
+#######################################
+*Updated the "OCT" option in the K.factor() function to allow the user to use the degrees of
+ freedom option, "f".
+*Fixed a bug in the bonftol.int() function.  The "alpha" argument was not passed correctly to
+ the type of tolerance interval being calculated.  Thanks to Alson Look for reporting this bug.
+*Updated references.
+
+
+#######################################
 2012-09-23 (Version 0.5.2)
 #######################################
 *The mvtol.region() function was updated to include many different ways to approximate the tolerance factor for

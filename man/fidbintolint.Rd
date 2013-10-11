@@ -32,6 +32,8 @@ If \eqn{X} is observed from a \eqn{Bin(n,p)} distribution, then the fiducial qua
 Clopper, C. J. and Pearson, E. S. (1934), The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial, \emph{Biometrika}, \bold{26}, 404--413.
 
 Krishnamoorthy, K. and Lee, M. (2010), Inference for Functions of Parameters in Discrete Distributions Based on Fiducial Approach: Binomial and Poisson Cases, \emph{Journal of Statistical Planning and Inference}, \bold{140}, 1182--1192.
+
+Mathew, T. and Young, D. S. (2013), Fiducial-Based Tolerance Intervals for Some Discrete Distributions, \emph{Computational Statistics and Data Analysis}, \bold{61}, 38--49.
 }
 \value{
 \code{fidbintol.int} returns a list with two items.  The first item (\code{tol.limits}) is a data frame with the following items:

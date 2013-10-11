@@ -72,10 +72,6 @@ K.factor(100, P = 0.95, side = 2, method = "HE")
 K.factor(100, P = 0.95, side = 2, method = "WBE")
 K.factor(100, P = 0.95, side = 2, method = "EXACT", m = 50)
 
-K.factor(1000, P = 0.95, side = 2, method = "HE")
-K.factor(1000, P = 0.95, side = 2, method = "WBE")
-K.factor(1000, P = 0.95, side = 2, method = "EXACT", m = 50)
-
 }
 
 \keyword{file}
