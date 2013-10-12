@@ -42,7 +42,7 @@ nlregtol.int(formula, xy.data = data.frame(), x.new = NULL,
   Wallis, W. A. (1951), Tolerance Intervals for Linear Regression, in \emph{Second Berkeley Symposium on Mathematical
   Statistics and Probability}, ed. J. Neyman, Berkeley: University of CA Press, 43--51.
 
-  Young, D. S. (2012), Regression Tolerance Intervals, \emph{Communications in Statistics - Simulation and Computation}, to appear.
+  Young, D. S. (2013), Regression Tolerance Intervals, \emph{Communications in Statistics - Simulation and Computation}, \bold{42}, 2040--2055.
 } 
 
 \seealso{

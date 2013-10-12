@@ -16,10 +16,9 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
     beta.names <- names(beta.hat)
     temp <- data.frame(matrix(beta.hat, ncol = length(beta.hat)))
     colnames(temp) <- beta.names
-    attach(temp)
     pars <- length(beta.hat)
     (fx <- deriv(form, beta.names))
-    P.mat <- attr(eval(fx), "gradient")
+    P.mat <- with(temp, attr(eval(fx), "gradient"))
     PTP <- t(P.mat) %*% P.mat
     PTP2 <- try(solve(PTP), silent = TRUE)
     test.PTP <- class(PTP2)
@@ -38,7 +37,7 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
         x.temp <- cbind(NA, x.new)
         colnames(x.temp) <- colnames(xy.data)
         xy.data <- rbind(xy.data, x.temp)
-        P.mat <- attr(eval(fx, xy.data), "gradient")
+        P.mat <- with(temp, attr(eval(fx, xy.data), "gradient"))
     }
     y.hat <- predict(out, newdata = xy.data)
     n.star <- rep(NULL, nrow(xy.data))
@@ -47,7 +46,6 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
             t(t(P.mat[i, ])))))
     }
     n.star <- n.star^(-1)
-    detach(temp)
     df = n - pars
     if (side == 1) {
         z.p <- qnorm(P)

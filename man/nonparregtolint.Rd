@@ -43,9 +43,7 @@ npregtol.int(x, y, y.hat, side = 1, alpha = 0.05, P = 0.99,
 }
 
 \references{
-  Young, D. S. (2012), Regression Tolerance Intervals, \emph{Communications in Statistics - Simulation and Computation}, to appear.
-
-  Young, D. S. (2010), \code{tolerance:} An \code{R} Package for Estimating Tolerance Intervals, \emph{Journal of Statistical Software}, \bold{36}(5), 1--39.
+  Young, D. S. (2013), Regression Tolerance Intervals, \emph{Communications in Statistics - Simulation and Computation}, \bold{42}, 2040--2055.
 }
 
 \examples{ 

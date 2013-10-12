@@ -27,7 +27,7 @@ rnhyper(nn, m, n, k)
   \item{lower.tail}{Logical vector.  If \code{TRUE}, then probabilities are \eqn{P[X\le x]}, else \eqn{P[X>x]}.}  
 }
 \details{
-  A negative hypergeometric distribution (sometimes called the inverse hypergeometric distribution) models the total number of trials until \code{k} successes occur.  Compare this to the negative binomial distribution, which models the number of failures that occur until a specified number of successes has been reached.  The negative hypergeometric makes explicit negative hypergeometric distribution has density
+  A negative hypergeometric distribution (sometimes called the inverse hypergeometric distribution) models the total number of trials until \code{k} successes occur.  Compare this to the negative binomial distribution, which models the number of failures that occur until a specified number of successes has been reached.  The negative hypergeometric distribution has density
   \deqn{p(x) = \frac{{x-1 \choose k-1}{n-x \choose m-k}}{{n \choose m}}}{%
         p(x) = choose(x-1, k-1)choose(n-x, m-k) / choose(n, m)}
   for \eqn{x=k,k+1,...,n-m+k}.

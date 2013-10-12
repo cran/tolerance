@@ -47,6 +47,8 @@ Note that the zeta distribution is just a special case of the Zipf distribution 
 \references{
 Mandelbrot, B. B. (1965), Information Theory and Psycholinguistics. In B. B. Wolman and E. Nagel, editors. \emph{Scientific Psychology}, Basic Books.
 
+Young, D. S. (2013), Approximate Tolerance Limits for Zipf-Mandelbrot Distributions, \emph{Physica A: Statistical Mechanics and its Applications}, \bold{392}, 1702--1711. 
+
 Zipf, G. K. (1949), \emph{Human Behavior and the Principle of Least Effort}, Hafner.
 
 Zornig, P. and Altmann, G. (1995), Unified Representation of Zipf Distributions, \emph{Computational Statistics and Data Analysis}, \bold{19}, 461--473. 

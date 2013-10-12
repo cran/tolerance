@@ -7,14 +7,14 @@ Functions for Calculating Tolerance Intervals
 }
 \description{
 A collection of functions for calculating \code{[100(1-alpha)\%, 100(P)\%]} tolerance intervals, which
-are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} of the population of interest.
+are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} of the sampled population of interest.
 }
 \details{
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 0.5.2\cr
-Date: \tab 2012-09-23\cr
+Version: \tab 0.5.3\cr
+Date: \tab 2013-10-11\cr
 Depends \tab rgl, stats4\cr
 License: \tab GPL (>= 2)\cr
 }

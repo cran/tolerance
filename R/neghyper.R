@@ -3,10 +3,12 @@ dnhyper <- function(x, m, n, k, log = FALSE){
         stop(paste("k cannot be larger than m!", 
             "\n"))
     }
-	p <- choose(x - 1, k - 1) * choose(n - x, m - k) / choose(n, m)
+	p <- exp(lchoose(x - 1, k - 1) + lchoose(n - x, m - k) - lchoose(n, m))
     if (log) 
         p <- log(p)
-    p
+    p[is.nan(p)] <- 0
+	p <- pmax(p, 0)
+	p
 }
 
 pnhyper <- function(q, m, n, k, lower.tail = TRUE, log.p = FALSE){
@@ -29,7 +31,8 @@ pnhyper <- function(q, m, n, k, lower.tail = TRUE, log.p = FALSE){
         temp <- 1 - temp
     if (log.p) 
         temp <- log(temp)
-    temp
+    temp <- pmax(temp, 0)
+	temp
 }
 
 qnhyper <- function(p, m, n, k, lower.tail = TRUE, log.p = FALSE){

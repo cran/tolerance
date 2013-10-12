@@ -43,7 +43,7 @@ Provides 1-sided or 2-sided tolerance intervals for negative binomial random var
   Tian, M., Tang, M. L., Ng, H. K. T., and Chan, P. S. (2009), A Comparative Study of Confidence Intervals for Negative Binomial Proportions,
   \emph{Journal of Statistical Computation and Simulation}, \bold{79}, 241--249.
 
-  Young, D. S. (2012), A Procedure for Approximate Negative Binomial Tolerance Intervals, \emph{Journal of Statistical Computation and Simulation}, to appear.
+  Young, D. S. (2013), A Procedure for Approximate Negative Binomial Tolerance Intervals, \emph{Journal of Statistical Computation and Simulation}, to appear.
 } 
 \note{
 Recall that the geometric distribution is the negative binomial distribution where the size is 1. Therefore, the case when \code{n = m = 1} will provide tolerance limits for a geometric distribution.

@@ -103,20 +103,18 @@ K.factor <- function (n, f = NULL, alpha = 0.05, P = 0.99, side = 1, method = c(
             }
             else if (method == "OCT") {
                 delta <- sqrt(n) * qnorm((1 + P)/2)
-                Fun1 <- function(z, P, ke, n, delta) (2 * pnorm(-delta + 
-                  (ke * sqrt(n * z))/(sqrt(n - 1))) - 1) * exp(-z/2) * 
-                  z^((n - 1)/2 - 1)
-                Fun2 <- function(ke, P, n, alpha, m, delta) integrate(Fun1, 
-                  lower = (n - 1) * delta^2/(ke^2 * n), upper = 1000 * 
-                    n, P = P, ke = ke, n = n, delta = delta, 
+                Fun1 <- function(z, P, ke, n, f1, delta) (2 * pnorm(-delta + 
+                  (ke * sqrt(n * z))/(sqrt(f1))) - 1) * dchisq(z, f1)
+                Fun2 <- function(ke, P, n, f1, alpha, m, delta) integrate(Fun1, 
+                  lower = f1 * delta^2/(ke^2 * n), upper = 1000 * 
+                    n, P = P, ke = ke, n = n, f1 = f1, delta = delta, 
                   subdivisions = m)$value
-                Fun3 <- function(ke, P, n, alpha, m, delta) (2^((n - 
-                  1)/2) * gamma((n - 1)/2))^(-1) * suppressWarnings(Fun2(ke = ke, 
-                  P = P, n = n, alpha = alpha, m = m, delta = delta)) - 
-                  (1 - alpha)
-                K <- uniroot(f = Fun3, interval = c(0, k2 + 1000), 
-                  P = P, n = n, alpha = alpha, m = m, delta = delta, 
-                  tol = .Machine$double.eps^0.5)$root
+                Fun3 <- function(ke, P, n, f1, alpha, m, delta) abs((Fun2(ke = ke, 
+                	P = P, n = n, f1 = f1, alpha = alpha, m = m, delta = delta)) - 
+                  	(1 - alpha))
+                K <- optim(par = k2,   fn = Fun3, lower=0, 
+                  P = P, n = n, f1 = f, alpha = alpha, m = m, delta = delta, 
+                  method="L-BFGS-B")$par
             }
         }
         TEMP <- Vectorize(K.temp)
