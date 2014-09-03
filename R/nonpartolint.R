@@ -1,5 +1,5 @@
 nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS", 
-    "WALD", "HM"), upper = NULL, lower = NULL) 
+    "WALD", "HM", "YM"), upper = NULL, lower = NULL) 
 {
     n <- length(x)
     x.sort <- sort(x)
@@ -154,6 +154,15 @@ nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS",
                 "1-sided.upper")
         }
     }
+    if (method == "YM") {
+		n.min <- as.numeric(distfree.est(alpha = alpha, P = P, side = side))
+		if(side == 1){
+			if(n<n.min) temp <- extrap(x=x, alpha=alpha, P=P) else temp <- interp(x=x, alpha=alpha, P=P)
+		} else{
+			temp <- two.sided(x=x, alpha=alpha, P=P)		
+		}
+    }
+	
     temp
 }
 

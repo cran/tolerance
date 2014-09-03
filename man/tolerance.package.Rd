@@ -13,8 +13,8 @@ are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} 
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 0.5.3\cr
-Date: \tab 2013-10-11\cr
+Version: \tab 0.1.0\cr
+Date: \tab 2014-09-03\cr
 Depends \tab rgl, stats4\cr
 License: \tab GPL (>= 2)\cr
 }
@@ -22,7 +22,7 @@ License: \tab GPL (>= 2)\cr
 \author{
 Derek S. Young, Ph.D.
 
-Maintainer: Derek S. Young <dsy109@stat.psu.edu>
+Maintainer: Derek S. Young <derek.young@uky.edu>
 }
 \seealso{
   \code{\link{confint}}

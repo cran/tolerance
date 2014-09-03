@@ -40,7 +40,7 @@ plottol(tol.out, x, y = NULL, y.hat = NULL,
   returns an interval plot for each factor.
 }
 \references{
-  Montgomery, D. C. (2005), \emph{Introduction to Statistical Quality Control}, Fifth Edition, John Wiley \& Sons, Inc.
+  Montgomery, D. C. (2005), \emph{Introduction to Statistical Quality Control}, Fifth Edition, John Wiley & Sons, Inc.
 }
 
 

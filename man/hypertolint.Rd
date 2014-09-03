@@ -3,7 +3,7 @@
 \alias{hypertol.int}
 \usage{
 hypertol.int(x, n, N, m = NULL, alpha = 0.05, P = 0.99, 
-             side = 1, method = c("LS", "CC"))
+             side = 1, method = c("EX", "LS", "CC"))
 }
 \description{
   Provides 1-sided or 2-sided tolerance intervals for hypergeometric random variables.  From a sampling without replacement
@@ -22,7 +22,7 @@ hypertol.int(x, n, N, m = NULL, alpha = 0.05, P = 0.99,
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
   respectively).}
   \item{method}{The method for calculating the lower and upper confidence bounds, which are used in the calculation
-  of the tolerance bounds.  The default method is \code{"LS"}, which is the large-sample method.  \code{"CC"} gives a continuity-corrected version of the large-sample method.}
+  of the tolerance bounds.  The default method is \code{"EX"}, which is an exact-based method.  \code{"LS"} is the large-sample method.  \code{"CC"} gives a continuity-corrected version of the large-sample method.}
 } \value{
   \code{hypertol.int} returns a data frame with items:
   \item{alpha}{The specified significance level.}
@@ -43,8 +43,11 @@ As this methodology is built using large-sample theory, if the sampling rate is 
   Brown, L. D., Cai, T. T., and DasGupta, A. (2001), Interval Estimation for a Binomial Proportion, 
   \emph{Statistical Science}, \bold{16}, 101--133.
 
-  Eichenberger, P., Hulliger, B., and Potterat, J. (2011), Two Measures for Sample Size Determiniation,
+  Eichenberger, P., Hulliger, B., and Potterat, J. (2011), Two Measures for Sample Size Determination,
   \emph{Survey Research Methods}, \bold{5}, 27--37.
+
+  Young, D. S. (2014), Tolerance Intervals for Hypergeometric and Negative Hypergeometric Variables,
+  \emph{Sankhya: The Indian Journal of Statistics, Series B}, to appear.
 } 
 
 \examples{ 

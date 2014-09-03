@@ -32,7 +32,7 @@ exptol.int(x, alpha = 0.05, P = 0.99, side = 1, type.2 = FALSE)
 
 \references{
   Blischke, W. R. and Murthy, D. N. P. (2000), \emph{Reliability: Modeling, Prediction, and Optimization},
-  John Wiley \& Sons, Inc.
+  John Wiley & Sons, Inc.
 } 
 
 \examples{ 

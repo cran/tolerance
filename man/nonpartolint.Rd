@@ -3,8 +3,8 @@
 \alias{nptol.int}
 \usage{
 nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
-          method = c("WILKS", "WALD", "HM"), upper = NULL,
-          lower = NULL)
+          method = c("WILKS", "WALD", "HM", "YM"), 
+          upper = NULL, lower = NULL)
 }
 \description{
   Provides 1-sided or 2-sided nonparametric (i.e., distribution-free) tolerance intervals for any continuous
@@ -23,9 +23,9 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
   the beta distribution.  \code{"WALD"} is the Wald method, which produces (possibly) multiple tolerance bounds for \code{side = 2} (each
   having at least the specified confidence level), but is the same as \code{method = "WILKS"} for \code{side = 1}.  \code{"HM"} is
   the Hahn-Meeker method, which is based on the binomial distribution, but the upper and lower bounds may exceed the minimum and maximum
-  of the sample data.  For \code{side = 2}, this method will yield two intervals if an odd number of observations are to be trimmed from each side.}
-  \item{upper}{The upper bound of the data.  When \code{NULL}, then the maximum of \code{x} is used.}
-  \item{lower}{The lower bound of the data.  When \code{NULL}, then the minimum of \code{x} is used.}
+  of the sample data.  For \code{side = 2}, this method will yield two intervals if an odd number of observations are to be trimmed from each side.  \code{"YM"} is the Young-Mathew method for performing interpolation or extrapolation based on the order statistics.  See below for more information on this method.}
+  \item{upper}{The upper bound of the data.  When \code{NULL}, then the maximum of \code{x} is used. If \code{method = "YM"} and extrapolation is performed, then \code{upper} will be greater than the maximum.}
+  \item{lower}{The lower bound of the data.  When \code{NULL}, then the minimum of \code{x} is used. If \code{method = "YM"} and extrapolation is performed, then \code{lower} will be less than the maximum.}
 } \value{
   \code{nptol.int} returns a data frame with items:
   \item{alpha}{The specified significance level.}
@@ -38,6 +38,9 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
   \code{\link{distfree.est}}, \code{\link{npregtol.int}}
 }
 
+\details{For the Young-Mathew method, interpolation or extrapolation is performed.  When \code{side = 1}, two intervals are given: one based on linear interpolation/extrapolation of order statistics (\code{OS-Based}) and one based on fractional order statistics (\code{FOS-Based}).  When \code{side = 2}, only an interval based on linear interpolation/extrapolation of order statistics is given.
+}
+
 \references{
   Bury, K. (1999), \emph{Statistical Distributions in Engineering}, Cambridge University Press.
 
@@ -48,6 +51,9 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
   
   Wilks, S. S. (1941), Determination of Sample Sizes for Setting Tolerance Limits, \emph{The Annals of Mathematical Statistics},
   \bold{12}, 91--96.
+
+  Young, D. S. and Mathew, T. (2014), Improved Nonparametric Tolerance Intervals Based on Interpolated and Extrapolated Order Statistics,
+  \emph{Journal of Nonparametric Statistics}, \bold{26}, 415--432.
 } 
 
 \examples{ 

@@ -3,7 +3,7 @@
 \alias{neghypertol.int}
 \usage{
 neghypertol.int(x, n, N, m = NULL, alpha = 0.05, P = 0.99,
-                side = 1, method = c("LS", "CC"))
+                side = 1, method = c("EX", "LS", "CC"))
 }
 
 \description{
@@ -21,7 +21,7 @@ neghypertol.int(x, n, N, m = NULL, alpha = 0.05, P = 0.99,
   \item{side}{Whether a 1-sided or 2-sided tolerance interval is required (determined by \code{side = 1} or \code{side = 2},
   respectively).}
   \item{method}{The method for calculating the lower and upper confidence bounds, which are used in the calculation
-  of the tolerance bounds.  The default method is \code{"LS"}, which is the large-sample method.  \code{"CC"} gives a continuity-corrected version of the large-sample method.}	
+  of the tolerance bounds.  The default method is \code{"EX"}, which is an exact-based method.  \code{"LS"} is the large-sample method.  \code{"CC"} gives a continuity-corrected version of the large-sample method.}
 }
  \value{
   \code{neghypertol.int} returns a data frame with items:
@@ -40,6 +40,9 @@ As this methodology is built using large-sample theory, if the sampling rate is 
 \references{
   Khan, R. A. (1994), A Note on the Generating Function of a Negative Hypergeometric Distribution,
   \emph{Sankhya: The Indian Journal of Statistics, Series B}, \bold{56}, 309--313.
+
+  Young, D. S. (2014), Tolerance Intervals for Hypergeometric and Negative Hypergeometric Variables,
+  \emph{Sankhya: The Indian Journal of Statistics, Series B}, to appear.
 } 
 \seealso{
   \code{\link{acc.samp}}, \code{\link{NegHypergeometric}}

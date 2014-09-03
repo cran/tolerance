@@ -1,4 +1,18 @@
 #######################################
+2014-09-03 (Version 1.0.0)
+#######################################
+*Fixed small bug in the qnhyper() function.  Fixed an incorrect assignment in the dnyhper()
+ and the pnhyper() functions.
+*Added the "EX" option for an exact method calculation in the neghypertol.int() function.
+*Added the "EX" option for an exact method calculation and fixed how lower and upper bounds 
+ were defined in the hypertol.int() function. 
+*Added the "YM" method to nptol.int(), which is the Young-Mathew method for improved nonparametric 
+ tolerance intervals based on interpolated and extrapolated order statistics.
+*Updated some documentation.
+*Updated my contact e-mail as maintainer.
+
+
+#######################################
 2013-10-11 (Version 0.5.3)
 #######################################
 *Updated the "OCT" option in the K.factor() function to allow the user to use the degrees of
