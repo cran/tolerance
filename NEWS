@@ -1,4 +1,16 @@
 #######################################
+2015-04-15 (Version 1.1.0)
+#######################################
+*Added functions for the discrete Poisson-Lindley distribution.  This includes distribution functions [dpoislind(), ppoislind(), 
+ qpoislind(), and rpoislind()], a maximum likelihood function [poislind.ll()], and a function for calculating approximate
+ tolerance intervals [poislindtol.int()].
+*In the K.factor() function, the upper limit in the integrate function for the "EXACT" method was changed
+ from 10 to 5.  A numerical error would sometimes occur for extreme values of alpha, which appears to be
+ fixed by this change.  If any errors pertaining to the integrate function are obtained because of this
+ change, please contact me and I will try to dig into this further.
+
+
+#######################################
 2014-09-03 (Version 1.0.0)
 #######################################
 *Fixed small bug in the qnhyper() function.  Fixed an incorrect assignment in the dnyhper()

@@ -72,7 +72,7 @@ K.factor <- function (n, f = NULL, alpha = 0.05, P = 0.99, side = 1, method = c(
                   qchisq(P, 1, z^2)/X^2, df = df1, lower.tail = FALSE) * 
                   exp(-0.5 * n * z^2)
                 fun2 <- function(X, df1, P, n, alpha, m) integrate(fun1, 
-                  lower = 0, upper = 10, df1 = df1, P = P, X = X, 
+                  lower = 0, upper = 5, df1 = df1, P = P, X = X, 
                   n = n, subdivisions = m)$value
                 fun3 <- function(X, df1, P, n, alpha, m) sqrt(2 * 
                   n/pi) * suppressWarnings(fun2(X, df1, P, n, 
