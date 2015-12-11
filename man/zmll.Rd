@@ -41,6 +41,8 @@ See the help file for \code{mle} to see how the output is structured.
 ## Maximum likelihood estimation for randomly generated data
 ## from the Zipf, Zipf-Mandelbrot, and zeta distributions. 
 
+require(stats4)
+
 set.seed(100)
 
 s <- 2

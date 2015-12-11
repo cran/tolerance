@@ -13,9 +13,9 @@ are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} 
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 0.1.0\cr
-Date: \tab 2014-09-03\cr
-Depends \tab rgl, stats4\cr
+Version: \tab 1.1.1\cr
+Date: \tab 2015-12-11\cr
+Imports: \tab rgl, stats4\cr
 License: \tab GPL (>= 2)\cr
 }
 }
@@ -36,5 +36,7 @@ Maintainer: Derek S. Young <derek.young@uky.edu>
   \bold{15}, 2719--2762.
   
   Young, D. S. (2010), \code{tolerance:} An \code{R} Package for Estimating Tolerance Intervals, \emph{Journal of Statistical Software}, \bold{36}(5), 1--39.
+  
+  Young, D. S. (2014), Computing Tolerance Intervals and Regions in \code{R}. In M. B. Rao and C. R. Rao (eds.), \emph{Handbook of Statistics, Volume 32: Computational Statistics with \code{R}}, 309--338. North-Holland, Amsterdam.
 }
 

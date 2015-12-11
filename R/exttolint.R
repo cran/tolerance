@@ -18,8 +18,10 @@ exttol.int <- function (x, alpha = 0.05, P = 0.99, side = 1,
     n <- length(x)
     dist <- match.arg(dist)
     ext <- match.arg(ext)
-    if (dist == "Weibull") 
+    if (dist == "Weibull") { 
         x <- log(x)
+        ext <- "min"
+    }
     delta <- sqrt((mean(x^2) - mean(x)^2) * 6/pi^2)
     x.bar <- mean(x)
     temp <- (dist == "Weibull" | (dist == "Gumbel" & ext == "min"))
@@ -79,13 +81,15 @@ exttol.int <- function (x, alpha = 0.05, P = 0.99, side = 1,
         }
     }
     lambda <- function(P) log(-log(P))
-    k.t <- function(x1, x2) suppressWarnings(qt(1 - x1, df = (n - 
+    k.t <- function(x1, x2, n) suppressWarnings(qt(1 - x1, df = (n - 
         1), ncp = (-sqrt(n) * lambda(x2))))
-    lower <- xi - delta * k.t(alpha, P)/sqrt(n - 1)
-    upper <- xi - delta * k.t(1 - alpha, 1 - P)/sqrt(n - 1)
-    if (ext == "max") {
-        lower <- xi + delta * k.t(alpha, 1 - P)/sqrt(n - 1)
-        upper <- xi + delta * k.t(1 - alpha, P)/sqrt(n - 1)
+    lower <- xi - delta * k.t(alpha, P, n)/sqrt(n - 1)
+    upper <- xi - delta * k.t(1 - alpha, 1 - P, n)/sqrt(n - 1)
+    if (dist == "Gumbel" & ext == "max") {
+#        lower <- xi + delta * k.t(alpha, 1 - P, n)/sqrt(n - 1)
+#        upper <- xi + delta * k.t(1 - alpha, P, n)/sqrt(n - 1)
+        lower <- xi + delta * k.t(1 - alpha, 1 - P, n)/sqrt(n - 1)
+        upper <- xi + delta * k.t(alpha, P, n)/sqrt(n - 1)
     }
     a <- xi
     b <- delta

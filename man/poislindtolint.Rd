@@ -22,7 +22,7 @@ poislindtol.int(x, m = NULL, alpha = 0.05, P = 0.99, side = 1,
 The discrete Poisson-Lindley distribution is a compound distribution that, potentially, provides a better fit for count data relative to the traditional Poisson and negative binomial distributions. Poisson-Lindley distributions are heavily right-skewed distribution.  For most practical applications, one will typically be interested in 1-sided upper bounds.
 }
 \references{
-Qomi, M. N., Kiapour, A., and Young, D. S. (2015), Approximate Tolerance Intervals for the Discrete Poisson-Lindley Distribution, 
+Naghizadeh Qomi, M., Kiapour, A., and Young, D. S. (2015), Approximate Tolerance Intervals for the Discrete Poisson-Lindley Distribution, 
 \emph{Journal of Statistical Computation and Simulation}, to appear.
 }
 \value{

@@ -9,3 +9,20 @@ import(
   rgl,
   stats4
 )
+
+# Import from
+importFrom("graphics", "abline", "axis", "hist", "lines", "par",
+  "points", "segments", "title")
+importFrom("stats", "IQR", "anova", "as.formula", "cov", "dbinom",
+  "dcauchy", "dchisq", "deriv", "dgamma", "dlogis", "dnbinom",
+  "dnorm", "fitted", "integrate", "lm", "median", "nlm",
+  "nls", "optim", "pbeta", "pbinom", "pchisq", "phyper",
+  "pnorm", "predict", "qbeta", "qbinom", "qcauchy", "qchisq",
+  "qf", "qgamma", "qhyper", "qlogis", "qnbinom", "qnorm",
+  "qpois", "qt", "quantile", "rbeta", "rbinom", "rchisq",
+  "rexp", "rnbinom", "rnorm", "rpois", "runif", "sd",
+  "uniroot", "var"
+)
+importFrom(
+  "utils", "tail"
+)

@@ -1,4 +1,12 @@
 #######################################
+2015-12-11 (Version 1.1.1)
+#######################################
+*Added bayesnormtol.int(), a function to construct Bayesian normal tolerance intervals.
+*Added norm.ss(), a function with various strategies for sample size determination using normal tolerance intervals.
+*Updated some references.
+
+
+#######################################
 2015-04-15 (Version 1.1.0)
 #######################################
 *Added functions for the discrete Poisson-Lindley distribution.  This includes distribution functions [dpoislind(), ppoislind(), 
