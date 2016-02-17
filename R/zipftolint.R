@@ -22,8 +22,8 @@ zipftol.int <- function (x, m = NULL, N = NULL, alpha = 0.05, P = 0.99, side = 1
 	n <- sum(x)
 	if(is.null(m)) m<-n
 	if(dist=="Zipf"){	
-		s.hat <- as.numeric(coef(fit))
-		s.se <- sqrt(as.numeric(vcov(fit)))
+		s.hat <- as.numeric(stats4::coef(fit))
+		s.se <- sqrt(as.numeric(stats4::vcov(fit)))
 		CI <- s.hat + c(-1,1)*qnorm(1-alpha)*s.se*sqrt(n/m)
 		lower.s <- max(CI[1],0)
 		upper.s <- CI[2]
@@ -31,10 +31,10 @@ zipftol.int <- function (x, m = NULL, N = NULL, alpha = 0.05, P = 0.99, side = 1
     	upper <- min(qzipfman(P, s = lower.s, N = N), N)
 	} 
 	if(dist=="Zipf-Man"){
-		s.hat <- as.numeric(coef(fit)[1])
-		s.se <- sqrt(as.numeric(vcov(fit)[1,1]))
-		b.hat <- as.numeric(coef(fit)[2])
-		b.se <- sqrt(as.numeric(vcov(fit)[2,2]))
+		s.hat <- as.numeric(stats4::coef(fit)[1])
+		s.se <- sqrt(as.numeric(stats4::vcov(fit)[1,1]))
+		b.hat <- as.numeric(stats4::coef(fit)[2])
+		b.se <- sqrt(as.numeric(stats4::vcov(fit)[2,2]))
     		if (b.hat==0) warning("MLE for b is 0! Consider fitting a Zipf distribution.")
 		s.CI <- s.hat + c(-1,1)*qnorm(1-alpha)*s.se*sqrt(n/m) #These intervals might need to be divided by 2 for joint confidence.
 		b.CI <- b.hat + c(-1,1)*qnorm(1-alpha)*b.se*sqrt(n/m)
@@ -47,8 +47,8 @@ zipftol.int <- function (x, m = NULL, N = NULL, alpha = 0.05, P = 0.99, side = 1
 	}
 	if(dist=="Zeta"){
 		N <- Inf
-		s.hat <- as.numeric(coef(fit))
-		s.se <- sqrt(as.numeric(vcov(fit)))
+		s.hat <- as.numeric(stats4::coef(fit))
+		s.se <- sqrt(as.numeric(stats4::vcov(fit)))
 		CI <- s.hat + c(-1,1)*qnorm(1-alpha)*s.se*sqrt(n/m)
 		lower.s <- max(CI[1],0)
 		upper.s <- CI[2]

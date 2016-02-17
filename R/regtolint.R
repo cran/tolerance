@@ -11,7 +11,11 @@ regtol.int <- function (reg, new.x = NULL, side = 1, alpha = 0.05, P = 0.99)
         new.x <- matrix(new.x, ncol = 1)
     n <- length(reg$res)
     pars <- length(reg$coef)
-    x <- data.matrix(reg$model[, -1], rownames.force = FALSE)
+    if(is.null(reg$weights)){
+      x <- data.matrix(reg$model[, -1], rownames.force = FALSE)
+    } else{
+      x <- data.matrix(reg$model[, -c(1,ncol(reg$model))], rownames.force = FALSE)
+    }
     new.length <- 0
     if (is.null(new.x) == FALSE) {
         new.length <- nrow(new.x)

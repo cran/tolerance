@@ -19,15 +19,15 @@ if(class(x)!="table"){
 	x <- c(x, rep(0,N-length(x)))
 	if(dist=="Zipf"){
 		ll.zipf <- function(s) sum(x*(s*log(N.seq)+log(sum(1/(N.seq)^s))))
-		fit <- suppressWarnings(mle(ll.zipf,start=list(s=s),lower=0,...))
+		fit <- suppressWarnings(stats4::mle(ll.zipf,start=list(s=s),lower=0,...))
 	}
 	if(dist=="Zipf-Man"){
 		ll.zima <- function(s,b) sum(x*(s*log(N.seq+b)+log(sum(1/(N.seq+b)^s))))
-		fit <- suppressWarnings(mle(ll.zima,start=list(s=s,b=b),lower=c(0,0),...))
+		fit <- suppressWarnings(stats4::mle(ll.zima,start=list(s=s,b=b),lower=c(0,0),...))
 	}
 	if(dist=="Zeta"){
 		ll.zeta <- function(s) sum(x*(s*log(N.seq)+log(zeta.fun(s))))
-		fit <- suppressWarnings(mle(ll.zeta,start=list(s=s),lower=1+1e-14,...))
+		fit <- suppressWarnings(stats4::mle(ll.zeta,start=list(s=s),lower=1+1e-14,...))
 	}
 	fit
 	}

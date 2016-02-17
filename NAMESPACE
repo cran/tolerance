@@ -12,7 +12,8 @@ import(
 
 # Import from
 importFrom("graphics", "abline", "axis", "hist", "lines", "par",
-  "points", "segments", "title")
+  "points", "segments", "title", "legend", "rect")
+importFrom("grDevices", "colors", "dev.new")
 importFrom("stats", "IQR", "anova", "as.formula", "cov", "dbinom",
   "dcauchy", "dchisq", "deriv", "dgamma", "dlogis", "dnbinom",
   "dnorm", "fitted", "integrate", "lm", "median", "nlm",
@@ -21,7 +22,7 @@ importFrom("stats", "IQR", "anova", "as.formula", "cov", "dbinom",
   "qf", "qgamma", "qhyper", "qlogis", "qnbinom", "qnorm",
   "qpois", "qt", "quantile", "rbeta", "rbinom", "rchisq",
   "rexp", "rnbinom", "rnorm", "rpois", "runif", "sd",
-  "uniroot", "var"
+  "uniroot", "var", "approx"
 )
 importFrom(
   "utils", "tail"

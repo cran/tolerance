@@ -7,7 +7,7 @@ dpoislind <- function(x, theta, log = FALSE){
     if (log)
         p <- log(p)
     p[is.nan(p)] <- 0
-    p <- pmin(pmax(p, 0),1)
+    if(!log) p <- pmin(pmax(p, 0),1)
     p
 }
 
@@ -21,10 +21,11 @@ ppoislind <- function(q, theta, lower.tail = TRUE, log.p = FALSE){
     temp <- sapply(1:length(q),function(i) sum(dpoislind(0:q[i],theta=theta,log=FALSE)))
     if (lower.tail == FALSE)
         temp <- 1 - temp
+	if(any(ind)) temp[ind] <- 0 + 1*!lower.tail
     if (log.p)
         temp <- log(temp)
-    temp <- pmin(pmax(temp, 0),1)
-    if(any(ind)) temp[ind] <- 0
+	if (!log.p)
+		temp <- pmin(pmax(temp, 0),1)
 	temp
 }
 

@@ -33,13 +33,11 @@ See the help file for \code{mle} to see how the output is structured.
 ## Maximum likelihood estimation for randomly generated data
 ## from the Poisson-Lindley distribution. 
 
-require(stats4)
-
 set.seed(100)
 
 pl.data <- rpoislind(n = 500, theta = 0.5)
 out.pl <- poislind.ll(pl.data)
-coef(out.pl)
-vcov(out.pl)
+stats4::coef(out.pl)
+stats4::vcov(out.pl)
 }
 \keyword{file}

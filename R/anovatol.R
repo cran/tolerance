@@ -20,7 +20,7 @@ anovatol.int <- function (lm.out, data, alpha = 0.05, P = 0.99, side = 1, method
             length))
         K <- NULL
         for (j in 1:length(temp.eff)) {
-            K <- c(K, K.factor(n = temp.eff[j], alpha = alpha, 
+            K <- c(K, K.factor(n = temp.eff[j], f=tail(df,1), alpha = alpha, 
                 P = P, side = side, method = method, m = m))
         }
         temp.low <- temp.means - K * s

@@ -10,8 +10,8 @@ poislindtol.int <- function(x, m = NULL, alpha=0.05, P=0.99, side = 1, ...){
     }
 	if(is.null(m)) m <- n
 	out <- poislind.ll(x, ...)
-	theta <- as.numeric(coef(out))
-	CI <- pmax(theta+c(-1,1)*qnorm(1-alpha)*sqrt(vcov(out)[1])*sqrt(n/m),0)
+	theta <- as.numeric(stats4::coef(out))
+	CI <- pmax(theta+c(-1,1)*qnorm(1-alpha)*sqrt(stats4::vcov(out)[1])*sqrt(n/m),0)
 	lower <- max(qpoislind(1 - P, theta = CI[2]), 0)
     upper <- qpoislind(P, theta = CI[1])
     if (side == 2) {

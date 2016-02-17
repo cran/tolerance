@@ -1,4 +1,22 @@
 #######################################
+2016-02-17 (Version 1.2.0)
+#######################################
+*Added functions for the discrete Pareto distribution.  This includes distribution functions [ddpareto(), pdpareto(), 
+ qdpareto(), and rdpareto()], a maximum likelihood function [dpareto.ll()], and a function for calculating approximate
+ tolerance intervals [dparetotol.int()].  Thanks to Mehran Naghizadeh Qomi and Azadeh Kiapour for initial versions of these
+ functions and for thoroughly testing the final functions.
+*Fixed issue with loading stats4 package for the zm.ll() and poislind.ll() functions.
+*Added norm.OC(), a function for producing OC-type curves to illustrate how values of the k-factors for normal tolerance intervals, 
+ confidence levels, and content levels change as a function of the sample size.
+*Corrected error in anovatol.int() function.  The k-factor calculation in the previous version used an incorrect value for the 
+ degrees of freedom in the formula.
+*Fixed typo in norm.ss() documentation.
+*Modified K.table() code to allow user to specify any of the ways to compute the underlying normal k-factors.
+*Modified regolt.int() code to allow predictions when weighting is used.
+*Fixed typos in dpoislind() and ppoislind() functions regarding the logarithm options.
+
+
+#######################################
 2015-12-11 (Version 1.1.1)
 #######################################
 *Added bayesnormtol.int(), a function to construct Bayesian normal tolerance intervals.

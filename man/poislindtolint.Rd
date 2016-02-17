@@ -19,11 +19,11 @@ poislindtol.int(x, m = NULL, alpha = 0.05, P = 0.99, side = 1,
     \item{...}{Additional arguments passed to the \code{poislind.ll} function, which is used for maximum likelihood estimation.}
 }
 \details{
-The discrete Poisson-Lindley distribution is a compound distribution that, potentially, provides a better fit for count data relative to the traditional Poisson and negative binomial distributions. Poisson-Lindley distributions are heavily right-skewed distribution.  For most practical applications, one will typically be interested in 1-sided upper bounds.
+The discrete Poisson-Lindley distribution is a compound distribution that, potentially, provides a better fit for count data relative to the traditional Poisson and negative binomial distributions. Poisson-Lindley distributions are heavily right-skewed distributions.  For most practical applications, one will typically be interested in 1-sided upper bounds.
 }
 \references{
 Naghizadeh Qomi, M., Kiapour, A., and Young, D. S. (2015), Approximate Tolerance Intervals for the Discrete Poisson-Lindley Distribution, 
-\emph{Journal of Statistical Computation and Simulation}, to appear.
+\emph{Journal of Statistical Computation and Simulation}, \bold{86}, 841--854.
 }
 \value{
 \code{poislindtol.int} returns a data frame with the following items:

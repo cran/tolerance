@@ -29,7 +29,7 @@ rpoislind(n, theta)
 \details{
 The Poisson-Lindley distribution has mass
 \deqn{p(x) = \frac{\theta^{2}(x + \theta + 2)}{(\theta + 1)^{x+3}},}{%
-      p(x) = (\theta^2(x + \theta + 2))/(\theat + 1)^(x+3),}
+      p(x) = (\theta^2(x + \theta + 2))/(\theta + 1)^(x+3),}
 where \eqn{x=0,1,\ldots} and \eqn{\theta>0} is the shape parameter. 
 }
 \references{
