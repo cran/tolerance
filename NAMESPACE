@@ -22,7 +22,7 @@ importFrom("stats", "IQR", "anova", "as.formula", "cov", "dbinom",
   "qf", "qgamma", "qhyper", "qlogis", "qnbinom", "qnorm",
   "qpois", "qt", "quantile", "rbeta", "rbinom", "rchisq",
   "rexp", "rnbinom", "rnorm", "rpois", "runif", "sd",
-  "uniroot", "var", "approx"
+  "uniroot", "var", "approx", "dhyper"
 )
 importFrom(
   "utils", "tail"

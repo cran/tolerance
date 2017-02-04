@@ -1,4 +1,17 @@
 #######################################
+2017-02-03 (Version 1.3.0)
+#######################################
+*Updated "Title" and "Description" to reflect new CRAN policies.
+*Added an error message if a vector of length less than 2 is used for the data argument in
+ nptol.int().  Thanks to Maxim Nazarov for the suggestion.
+*Fixed bug in dnhyper() for case where x=0.  Thanks to Jerry Lewis for reporting this bug.
+*Added functions for constructing simultaneous tolerance limits for normal populations.  This includes a 
+ k-factor function [K.factor.sim()] and a function to construct the simultaneous normal tolerance limits
+ [simnormtol.int()].  Thanks to Andrew Landgraf for providing his code for the K.factor.sim() function.
+*Updated some references.
+
+
+#######################################
 2016-02-17 (Version 1.2.0)
 #######################################
 *Added functions for the discrete Pareto distribution.  This includes distribution functions [ddpareto(), pdpareto(), 

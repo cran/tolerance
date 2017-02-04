@@ -2,6 +2,10 @@ nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS",
     "WALD", "HM", "YM"), upper = NULL, lower = NULL) 
 {
     n <- length(x)
+    if (n < 2) {
+      stop(paste("It is not meaningful to compute tolerance intervals using vectors of length less than 2!", 
+                 "\n"))
+    }
     x.sort <- sort(x)
     method <- match.arg(method)
     if (is.null(upper)) 
@@ -13,7 +17,7 @@ nptol.int <- function (x, alpha = 0.05, P = 0.99, side = 1, method = c("WILKS",
             if (floor((n + 1)/2) == ((n + 1)/2)) 
                 up <- ((n + 1)/2) - 1
             else up <- floor((n + 1)/2)
-            r <- 1:up
+            r <- seq_len(up)
             out2 <- pbeta(P, n - 2 * r + 1, 2 * r, lower.tail = FALSE) - 
                 (1 - alpha)
             ti2 <- cbind(r, out2)

@@ -25,7 +25,7 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
   the Hahn-Meeker method, which is based on the binomial distribution, but the upper and lower bounds may exceed the minimum and maximum
   of the sample data.  For \code{side = 2}, this method will yield two intervals if an odd number of observations are to be trimmed from each side.  \code{"YM"} is the Young-Mathew method for performing interpolation or extrapolation based on the order statistics.  See below for more information on this method.}
   \item{upper}{The upper bound of the data.  When \code{NULL}, then the maximum of \code{x} is used. If \code{method = "YM"} and extrapolation is performed, then \code{upper} will be greater than the maximum.}
-  \item{lower}{The lower bound of the data.  When \code{NULL}, then the minimum of \code{x} is used. If \code{method = "YM"} and extrapolation is performed, then \code{lower} will be less than the maximum.}
+  \item{lower}{The lower bound of the data.  When \code{NULL}, then the minimum of \code{x} is used. If \code{method = "YM"} and extrapolation is performed, then \code{lower} will be less than the minimum.}
 } \value{
   \code{nptol.int} returns a data frame with items:
   \item{alpha}{The specified significance level.}

@@ -47,7 +47,7 @@ As this methodology is built using large-sample theory, if the sampling rate is 
   \emph{Survey Research Methods}, \bold{5}, 27--37.
 
   Young, D. S. (2014), Tolerance Intervals for Hypergeometric and Negative Hypergeometric Variables,
-  \emph{Sankhya: The Indian Journal of Statistics, Series B}, to appear.
+  \emph{Sankhya: The Indian Journal of Statistics, Series B}, \bold{77}(1), 114--140.
 } 
 
 \examples{ 

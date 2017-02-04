@@ -42,27 +42,20 @@ As this methodology is built using large-sample theory, if the sampling rate is 
   \emph{Sankhya: The Indian Journal of Statistics, Series B}, \bold{56}, 309--313.
 
   Young, D. S. (2014), Tolerance Intervals for Hypergeometric and Negative Hypergeometric Variables,
-  \emph{Sankhya: The Indian Journal of Statistics, Series B}, to appear.
+  \emph{Sankhya: The Indian Journal of Statistics, Series B}, \bold{77}(1), 114--140.
 } 
 \seealso{
   \code{\link{acc.samp}}, \code{\link{NegHypergeometric}}
 }
 \examples{
-## 90\%/95\% 1-sided and 2-sided negative hypergeometric 
-## tolerance intervals for a future number of 300 successes
-## when the universe is of size 1000.  The estimates are 
-## based on having drawn 425 in another sample to achieve 
-## 200 successes.
+## 90\%/95\% 2-sided negative hypergeometric tolerance
+## intervals for a future number of 20 successes when
+## the universe is of size 100.  The estimates are 
+## based on having drawn 50 in another sample to achieve 
+## 20 successes.
 
-neghypertol.int(425, 200, 1000, m = 300, alpha = 0.05, 
-                P = 0.95, side = 1, method = "LS")
-neghypertol.int(425, 200, 1000, m = 300, alpha = 0.05, 
-                P = 0.95, side = 1, method = "CC")
-
-neghypertol.int(425, 200, 1000, m = 300, alpha = 0.05, 
+neghypertol.int(50, 20, 100, m = 20, alpha = 0.05, 
                 P = 0.95, side = 2, method = "LS")
-neghypertol.int(425, 200, 1000, m = 300, alpha = 0.05, 
-                P = 0.95, side = 2, method = "CC")
 }
 \keyword{file}
 

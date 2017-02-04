@@ -3,18 +3,17 @@
 \alias{tolerance}
 \docType{package}
 \title{
-Functions for Calculating Tolerance Intervals
+Statistical Tolerance Intervals and Regions
 }
 \description{
-A collection of functions for calculating \code{[100(1-alpha)\%, 100(P)\%]} tolerance intervals, which
-are intervals with \code{100(1-alpha)\%} confidence of covering \code{100(P)\%} of the sampled population of interest.
+Statistical tolerance limits provide the limits between which we can expect to find a specified proportion of a sampled population with a given level of confidence.  This package provides functions for estimating tolerance limits (intervals) for various univariate distributions (binomial, Cauchy, discrete Pareto, exponential, two-parameter exponential, extreme value, hypergeometric, Laplace, logistic, negative binomial, negative hypergeometric, normal, Pareto, Poisson-Lindley, Poisson, uniform, and Zipf-Mandelbrot), Bayesian normal tolerance limits, multivariate normal tolerance regions, nonparametric tolerance intervals, tolerance bands for regression settings (linear regression, nonlinear regression, nonparametric regression, and multivariate regression), and analysis of variance tolerance intervals.  Visualizations are also available for most of these settings.
 }
 \details{
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 1.2.0\cr
-Date: \tab 2016-02-17\cr
+Version: \tab 1.3.0\cr
+Date: \tab 2017-02-03\cr
 Imports: \tab rgl, stats4\cr
 License: \tab GPL (>= 2)\cr
 }
