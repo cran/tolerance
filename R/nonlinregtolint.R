@@ -21,13 +21,13 @@ nlregtol.int <- function (formula, xy.data = data.frame(), x.new = NULL, side = 
     P.mat <- with(temp, attr(eval(fx), "gradient"))
     PTP <- t(P.mat) %*% P.mat
     PTP2 <- try(solve(PTP), silent = TRUE)
-    test.PTP <- class(PTP2)
+    test.PTP <- class(PTP2)[1]
     if (test.PTP == "try-error") {
         PTP0 <- PTP
         while (test.PTP == "try-error") {
             PTP3 <- PTP0 + diag(rep(min(diag(PTP))/1000, length(diag(PTP))))
             PTP.new <- try(solve(PTP3), silent = TRUE)
-            test.PTP <- class(PTP.new)
+            test.PTP <- class(PTP.new)[1]
             PTP0 <- PTP3
         }
         PTP <- PTP.new

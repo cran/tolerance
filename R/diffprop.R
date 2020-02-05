@@ -42,7 +42,7 @@ qdiffprop <- function(p, k1, k2, n1, n2, a1 = 0.5, a2 = 0.5, lower.tail = TRUE, 
 				temp.fun <- function(d, p, k1, k2, n1, n2, a1, a2) p - integrate(Vectorize(ddiffprop), k1 = k1, k2 = k2, n1 = n1, n2 = n2, a1 = a1, a2 = a2, lower = -1, upper = d, ...)$value
 				out <- try(uniroot(temp.fun, c(-1, 1), k1 = k1, k2 = k2, n1 = n1, n2 = n2, a1 = a1, a2 = a2, p = p)$root, silent = TRUE)
 				if(class(out) == "try-error"){
-					temp2 <- c(abs(temp.fun(-1,gamma,k1,k2,n1[1],n2[1],a1,a2)), abs(temp.fun(1,gamma,k1,k2,n1[1],n2[1],a1,a2)))
+					temp2 <- c(abs(temp.fun(-1,p,k1,k2,n1[1],n2[1],a1,a2)), abs(temp.fun(1,p,k1,k2,n1[1],n2[1],a1,a2)))
 					out <- ifelse(which.min(temp2)==1,-1,1)
 				}
 			}

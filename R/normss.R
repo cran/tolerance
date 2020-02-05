@@ -13,7 +13,7 @@ norm.ss <- function(x = NULL, alpha = 0.05, P = 0.99, delta = NULL, P.prime = NU
             "\n"))
     }
 	mu.0 <- hyper.par$mu.0
-	s.0 <- hyper.par$sig2.0
+	s.0 <- sqrt(hyper.par$sig2.0)
 			f1 <- function(n,mu,sigma,alpha,P=P,side,spec.U) spec.U - (mu+K.factor(n=n,alpha=alpha,P=P,side=side,method="OCT",m=m)*sigma)
 			f2 <- function(n,mu,sigma,alpha,P=P,side,spec.L) (mu-K.factor(n=n,alpha=alpha,P=P,side=side,method="OCT",m=m)*sigma) - spec.L
 		if(side==1){

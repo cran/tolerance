@@ -34,12 +34,12 @@ These functions may be updated in a future version of the package so as to allow
 } 
 \details{
 The Zipf-Mandelbrot distribution has mass
-\deqn{p(x) = \frac{(x + \delta)^{-\lambda}}{\sum_{i=1}^{N}(i + \delta)^{-\lambda}},}{%
-      p(x) = (x + \delta)^-\lambda/\sum_{i=1}^{N}(i + \delta)^(-\lambda),}	
-where \eqn{x=1,\ldots,N}, \eqn{\lambda,\delta>0} are shape parameters, and \code{N} is the number of distinct categories. The Zipf distribution is just a special case of the Zipf-Mandelbrot distribution where the second shape parameter \code{b=0}.  The zeta distribution has mass
-\deqn{p(x) = \frac{x^{-\lambda}}{\zeta(\lambda)},}{%
-      p(x) = x^-\lambda/\zeta(\lambda),}	
-where \eqn{x=1,2,\ldots}, \eqn{\lambda>1} is the shape parameter, and \eqn{\zeta()} is the Riemann zeta function given by:
+\deqn{p(x) = \frac{(x + b)^{-s}}{\sum_{i=1}^{N}(i + b)^{-s}},}{%
+      p(x) = (x + b)^-s/\sum_{i=1}^{N}(i + b)^(-s),}	
+where \eqn{x=1,\ldots,N}, \code{s,b>0} are shape parameters, and \code{N} is the number of distinct categories. The Zipf distribution is just a special case of the Zipf-Mandelbrot distribution where the second shape parameter \code{b=0}.  The zeta distribution has mass
+\deqn{p(x) = \frac{x^{-s}}{\zeta(s)},}{%
+      p(x) = x^-\lambda/\zeta(s),}	
+where \eqn{x=1,2,\ldots}, \code{s>1} is the shape parameter, and \eqn{\zeta()} is the Riemann zeta function given by:
 \deqn{\zeta(t) = \sum_{i=1}^{\infty}\frac{1}{i^{t}}<\infty.}{%
 			\zeta(t) = \sum_{i=1}^\infty 1/i^t<\infty.}
 Note that the zeta distribution is just a special case of the Zipf distribution where \code{s>1} and \code{N} goes to infinity.

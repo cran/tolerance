@@ -11,8 +11,7 @@ regtol.int(reg, new.x = NULL, side = 1, alpha = 0.05, P = 0.99)
 
 \arguments{
   \item{reg}{An object of class \code{lm} (i.e., the results from a linear regression routine).}
-  \item{new.x}{Any new levels of the predictor(s) for which to report the tolerance bounds.  The number of columns must equal
-  the number of predictors appearing on the right-hand side of the model in \code{reg}.}
+  \item{new.x}{An optional data frame in which to look for variables with which to predict. If omitted, the fitted values are used.}
   \item{side}{Whether a 1-sided or 2-sided tolerance bound is required (determined by \code{side = 1} or \code{side = 2},
   respectively).} 
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
@@ -48,7 +47,7 @@ regtol.int(reg, new.x = NULL, side = 1, alpha = 0.05, P = 0.99)
 set.seed(100)
 x <- runif(100, 0, 10)
 y <- 20 + 5*x + rnorm(100, 0, 3)
-out <- regtol.int(reg = lm(y ~ x), new.x = cbind(c(3, 6, 9)), 
+out <- regtol.int(reg = lm(y ~ x), new.x = data.frame(x = c(3, 6, 9)), 
                   side = 2, alpha = 0.05, P = 0.95)
 out
 

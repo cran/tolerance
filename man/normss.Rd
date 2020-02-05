@@ -38,7 +38,7 @@ Provides minimum sample sizes for a future sample size when constructing normal 
 \references{
   Faulkenberry, G. D. and Weeks, D. L. (1968), Sample Size Determination for Tolerance Limits, \emph{Technometrics}, \bold{10}, 343--348.
 
-  Young, D. S., Gordon, C. M., Zhu, S., and Olin, B. D. (2016), Sample Size Determination Strategies for Normal Tolerance Intervals Using Historical Data, \emph{Quality Engineering (to appear).}
+  Young, D. S., Gordon, C. M., Zhu, S., and Olin, B. D. (2016), Sample Size Determination Strategies for Normal Tolerance Intervals Using Historical Data, \emph{Quality Engineering}, \bold{28}, 337--351.
 } 
 
 \examples{ 

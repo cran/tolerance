@@ -6,6 +6,7 @@ exportPattern(".")
 
 # Import all packages listed as Imports or Depends
 import(
+  MASS,
   rgl,
   stats4
 )
@@ -22,7 +23,7 @@ importFrom("stats", "IQR", "anova", "as.formula", "cov", "dbinom",
   "qf", "qgamma", "qhyper", "qlogis", "qnbinom", "qnorm",
   "qpois", "qt", "quantile", "rbeta", "rbinom", "rchisq",
   "rexp", "rnbinom", "rnorm", "rpois", "runif", "sd",
-  "uniroot", "var", "approx", "dhyper"
+  "uniroot", "var", "approx", "dhyper", "model.matrix"
 )
 importFrom(
   "utils", "tail"

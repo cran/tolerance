@@ -56,7 +56,7 @@ Note that if one considers the non-informative prior distribution, then the Baye
   Guttman, I. (1970), \emph{Statistical Tolerance Regions: Classical and Bayesian},
   Charles Griffin and Company.
 
-  Young, D. S., Gordon, C. M., Zhu, S., and Olin, B. D. (2016), Sample Size Determination Strategies for Normal Tolerance Intervals Using Historical Data, \emph{Quality Engineering (to appear).}
+  Young, D. S., Gordon, C. M., Zhu, S., and Olin, B. D. (2016), Sample Size Determination Strategies for Normal Tolerance Intervals Using Historical Data, \emph{Quality Engineering}, \bold{28}, 337--351.
 } 
 
 \examples{ 

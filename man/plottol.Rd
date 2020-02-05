@@ -77,7 +77,7 @@ plottol(out2, x)
 set.seed(100)
 x <- runif(100, 0, 10)
 y <- 20 + 5*x + rnorm(100, 0, 3)
-out3 <- regtol.int(reg = lm(y ~ x), new.x = cbind(c(3, 6, 9)), 
+out3 <- regtol.int(reg = lm(y ~ x), new.x = data.frame(x = c(3, 6, 9)), 
                    side = 2, alpha = 0.05, P = 0.95)
 plottol(out3, x = cbind(1, x), y = y, side = "two", x.lab = "X", 
         y.lab = "Y")

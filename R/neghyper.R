@@ -11,28 +11,13 @@ dnhyper <- function(x, m, n, k, log = FALSE){
     p
 }
 
-pnhyper <- function(q, m, n, k, lower.tail = TRUE, log.p = FALSE){
-    if (k > m) {
-        stop(paste("k cannot be larger than m!",
-            "\n"))
-    }
-    q <- ceiling(q)
-    temp <- rep(0, length(q))
-    for (i in 1:length(q)) {
-        if (q[i] < k) {
-            temp[i] <- 0
-        }
-        else if (q[i] >= (n - m + k)) {
-            temp[i] <- 1
-        }
-        else temp[i] <- sum(dnhyper(k:q[i], m = m, n = n, k = k))
-    }
-    if (lower.tail == FALSE)
-        temp <- 1 - temp
-    temp <- pmin(pmax(temp, 0),1)
-    if (log.p)
-        temp <- log(temp)
-    temp
+pnhyper <- function(q, m, n, k, lower.tail = TRUE, log.p = FALSE)
+{
+  if (k > m) {
+    stop(paste("k cannot be larger than m!", "\n"))
+  }
+  p <- phyper(q = k-1, m = m, n = n-m, k = q, lower.tail = !lower.tail, log.p = log.p)
+  return(p)
 }
 
 qnhyper <- function(p, m, n, k, lower.tail = TRUE, log.p = FALSE){

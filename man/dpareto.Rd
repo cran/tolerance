@@ -36,7 +36,7 @@ where \eqn{x=0,1,\ldots} and \eqn{0<\theta<1} is the shape parameter.
 Krishna, H. and Pundir, P. S. (2009), Discrete Burr and Discrete Pareto Distributions, 
 \emph{Statistical Methodology}, \bold{6}, 177--188.
 
-Young, D. S., Naghizadeh Qomi, M., and Kiapour, A. (2016), Approximate Discrete Pareto Tolerance Limits for Characterizing Extremes in Count Data, \emph{submitted}. 
+Young, D. S., Naghizadeh Qomi, M., and Kiapour, A. (2019), Approximate Discrete Pareto Tolerance Limits for Characterizing Extremes in Count Data, \emph{Statistica Neerlandica}, \bold{73}, 4--21. 
 }
 \value{
 \code{ddpareto} gives the density (mass), \code{pdpareto} gives the distribution function, \code{qdpareto} gives the quantile function, and \code{rdpareto} generates random deviates for the specified distribution. 

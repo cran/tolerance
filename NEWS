@@ -1,4 +1,32 @@
 #######################################
+2020-02-04 (Version 2.0.0)
+#######################################
+*Fixed compatibility issues with R 4.0.0.
+*Substantial changes made to mvregtol.region().  This function no longer depends on inputted y and x 
+ matrices, but rather a new mvreg argument, which is of class "mlm", is required.  Moreover, the int
+ argument for specifying an intercept is deprecated as the inclusion/exclusion of an intercept is 
+ identified through the formula used for the fit of the mvreg object.
+*Fixed multiple problems with regtol.int() in order to calculate tolerance intervals for the regression through
+ the origin model, a model with interactions, and polynomial regression.  Thanks to Tian Liu and
+ Aisaku Nakamura for suggestions.
+*Added npbetol.int() function for calculating nonparametric beta-expectation tolerance intervals.
+*Modified pnyhper() function to make it more efficient.  Thanks to Jerry Lewis for this
+ suggestion.
+*Fixed bug in norm.ss() function for the "DIR" method.  The "sig2.0" hyperparameter was 
+ treated as the standard deviation, but now has been corrected to reflect the variance.
+ Thanks to David Whiting and John Szumiloski for pointing out this bug.
+*Modified the logistol.int() function to use the method of moments estimators in extreme cases
+ when the MLEs cannot be numerically calculated.
+*Modified the gamtol.int() function so that the calculation can be performed when the
+ observed data are very small.  Thanks to Kevin Bright for pointing out this error.
+*Fixed bug in nptol.int() function for the "YM" option when P is very small.  Thanks to
+ Karen Byron for pointing this out.
+*Revised some of the documentation for the Zipf-Mandelbrot distributions, courtesy of a 
+ good suggestion by Jan Kardaun.
+*Updated some references.
+
+
+#######################################
 2017-02-03 (Version 1.3.0)
 #######################################
 *Updated "Title" and "Description" to reflect new CRAN policies.

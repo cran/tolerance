@@ -2,8 +2,8 @@ plottol <- function (tol.out, x, y = NULL, y.hat = NULL, side = c("two",
     "upper", "lower"), plot.type = c("control", "hist", "both"), 
     x.lab = NULL, y.lab = NULL, z.lab = NULL, ...) 
 {
-    if (class(tol.out) == "list" & is.null(names(tol.out)) == 
-        FALSE & class(x) == "data.frame") {
+    if (class(tol.out)[1] == "list" & is.null(names(tol.out)) == 
+        FALSE & class(x)[1] == "data.frame") {
         temp <- NULL
         for (i in 1:length(tol.out)) temp = c(temp, unlist(tol.out[[i]][, 
             4:5]))
@@ -61,7 +61,7 @@ plottol <- function (tol.out, x, y = NULL, y.hat = NULL, side = c("two",
             stop(paste("There are no plots produced for discrete distribution tolerance intervals.", 
                 "\n"))
         }
-        if (class(tol.out) == "list") {
+        if (class(tol.out)[1] == "list") {
             y.lim = range(sapply(1:length(tol.out), function(i) tol.out[[i]][, 
                 c(ncol(tol.out[[i]]) - 1, ncol(tol.out[[i]]))]))
             temp.tol <- tol.out
@@ -232,7 +232,7 @@ plottol <- function (tol.out, x, y = NULL, y.hat = NULL, side = c("two",
                 "FALSE") {
                 plot(x, y, xlab = x.lab, ylab = y.lab, ylim = y.lim, pch = 19,
                   ...)
-                if (class(temp.tol) != "list") 
+                if (class(temp.tol)[1] != "list") 
                   temp.tol = list(tol.out)
                 out1 <- temp.tol
                 len <- length(out1)
@@ -272,7 +272,7 @@ plottol <- function (tol.out, x, y = NULL, y.hat = NULL, side = c("two",
             }
             if (colnames(out)[3] == "y") {
                 y.lim <- range(out[, 5:6])
-                if (class(x) == "numeric") 
+                if (class(x)[1] == "numeric") 
                   x <- matrix(x, ncol = 1)
                 if (sum(x[, 1] == 1) != nrow(x)) 
                   print("NOTE: A regression through the origin is fitted!")

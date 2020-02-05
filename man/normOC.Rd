@@ -33,7 +33,7 @@ Provides OC-type curves to illustrate how values of the k-factors for normal tol
 
 
 \references{
-  Young, D. S. (2016), Normal Tolerance Interval Procedures in the tolerance Package, \emph{in press}.
+  Young, D. S. (2016), Normal Tolerance Interval Procedures in the tolerance Package, \emph{The R Journal}, \bold{8}, 200--212.
 } 
 
 \examples{ 

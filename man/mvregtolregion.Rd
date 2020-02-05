@@ -2,20 +2,16 @@
 \title{Multivariate (Multiple) Linear Regression Tolerance Regions}
 \alias{mvregtol.region}
 \usage{
-mvregtol.region(y, x, new.x = NULL, int = TRUE, alpha = 0.05, 
-                P = 0.99, B = 1000)
+mvregtol.region(mvreg, new.x = NULL, alpha = 0.05, P = 0.99, 
+                B = 1000)
 }
 \description{
   Determines the appropriate tolerance factor for computing multivariate (multiple) linear regression tolerance regions based on Monte Carlo simulation.
 }
 
 \arguments{
-  \item{y}{An \code{n}x\code{q} matrix of responses assumed to be drawn from a \code{q}-dimensional multivariate normal
-  distribution.  \code{n} pertains to the sample size.}
-  \item{x}{An \code{n}x\code{m} matrix of predictors (i.e., the design matrix). \code{m} pertains to the number of predictors. Do NOT include a column of
-  1's if assuming an intercept.  This is controlled by the \code{int} argument.}
-  \item{new.x}{A matrix of new values for which to approximate k-factors. This must be a matrix with \code{m} columns.}
-  \item{int}{If \code{int = TRUE}, then an intercept is assumed.}
+  \item{mvreg}{A multivariate (multiple) linear regression fit, having class \code{mlm}.}
+  \item{new.x}{An optional data frame of new values for which to approximate k-factors. This must be a data frame with named columns that match those in the data frame used for the \code{mvreg} fitted object.}
   \item{alpha}{The level chosen such that \code{1-alpha} is the confidence level.}
   \item{P}{The proportion of the population to be covered by this tolerance region.}
   \item{B}{The number of iterations used for the Monte Carlo algorithm which determines the tolerance factor.  The number of
@@ -25,6 +21,10 @@ mvregtol.region(y, x, new.x = NULL, int = TRUE, alpha = 0.05,
   from the least squares fit, and the final \code{m} columns are the predictor values.  The first \code{n} rows of the matrix pertain to the raw data
   as specified by \code{y} and \code{x}.  If values for \code{new.x} are specified, then there is one additional row appended to this output for each
   row in the matrix \code{new.x}.
+}
+
+\note{
+As of tolerance version 2.0.0, the arguments to this function have changed.  This function no longer depends on inputted \code{y} and \code{x} matrices or an \code{int} argument.  Instead, the function requires \code{mvreg}, which is of class "mlm", and provides all of the necessary components for the way the output is formatted.  Also, \code{new.x} must now be a data frame with columns matching those from the data frame used in the \code{mvreg} fitted object.  
 }
 
 \references{
@@ -54,12 +54,12 @@ mvregtol.region(y, x, new.x = NULL, int = TRUE, alpha = 0.05,
 grain <- c(40, 17, 9, 15, 6, 12, 5, 9)
 straw <- c(53, 19, 10, 29, 13, 27, 19, 30)
 fert <- c(24, 11, 5, 12, 7, 14, 11, 18)
-Y <- cbind(grain, straw)
-X <- cbind(fert)
-new.x <- c(10, 15, 20)
+DF <- data.frame(grain,straw,fert)
+new.x <- data.frame(fert = c(10, 15, 20))
+mvreg <- lm(cbind(grain, straw) ~ fert + I(fert^2), data = DF)
 
 set.seed(100)
-out <- mvregtol.region(Y, X, new.x, int = TRUE, alpha = 0.05,
+out <- mvregtol.region(mvreg, new.x = new.x, alpha = 0.05,
                        P = 0.95, B = 5000)
 out
 }

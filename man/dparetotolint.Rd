@@ -22,7 +22,7 @@ dparetotol.int(x, m = NULL, alpha = 0.05, P = 0.99, side = 1,
 The discrete Pareto is a discretized of the continuous Type II Pareto distribution (also called the Lomax distribution). Discrete Pareto distributions are heavily right-skewed distributions and potentially good models for discrete lifetime data and extremes in count data.  For most practical applications, one will typically be interested in 1-sided upper bounds.
 }
 \references{
-Young, D. S., Naghizadeh Qomi, M., and Kiapour, A. (2016), Approximate Discrete Pareto Tolerance Limits for Characterizing Extremes in Count Data, \emph{submitted}. 
+Young, D. S., Naghizadeh Qomi, M., and Kiapour, A. (2019), Approximate Discrete Pareto Tolerance Limits for Characterizing Extremes in Count Data, \emph{Statistica Neerlandica}, \bold{73}, 4--21. 
 }
 \value{
 \code{dparetotol.int} returns a data frame with the following items:

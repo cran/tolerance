@@ -12,9 +12,9 @@ Statistical tolerance limits provide the limits between which we can expect to f
 \tabular{ll}{
 Package: \tab tolerance\cr
 Type: \tab Package\cr
-Version: \tab 1.3.0\cr
-Date: \tab 2017-02-03\cr
-Imports: \tab rgl, stats4\cr
+Version: \tab 2.0.0\cr
+Date: \tab 2020-02-04\cr
+Imports: \tab MASS, rgl, stats4\cr
 License: \tab GPL (>= 2)\cr
 }
 }

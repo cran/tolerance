@@ -60,16 +60,16 @@ interp <- function (x, alpha, P){
 	###Beran-Hall
 	pi.l <- (gamma-pbinom(n-s-1,n,P))/dbinom(n-s,n,P)
 	pi.u <- (gamma-pbinom(r-2,n,P))/dbinom(r-1,n,P)
-	Q.l <- pi.l*x[s+1]+(1-pi.l)*x[s]
-	Q.u <- pi.u*x[r]+(1-pi.u)*x[r-1]
+	Q.l <- ifelse(s==n,x[s],pi.l * x[s + 1] + (1 - pi.l) * x[s])
+	Q.u <- ifelse(r==1,x[r],pi.u * x[r] + (1 - pi.u) * x[r - 1])
 	###Hutson
 	f.l <- function(u1,u,n,alpha) pbeta(u,(n+1)*u1,(n+1)*(1-u1))-1+alpha
 	f.u <- function(u2,u,n,alpha) pbeta(u,(n+1)*u2,(n+1)*(1-u2))-alpha
 	u1 <- uniroot(f.l,interval=c(0.00001,0.99999),u=1-P,n=n,alpha=alpha)$root
 	u2 <- uniroot(f.u,interval=c(0.00001,0.99999),u=P,n=n,alpha=alpha)$root
 	eps <- function(u,n) (n+1)*u-floor((n+1)*u)
-	Qh.l <- (1-eps(u1,n))*x[s]+eps(u1,n)*x[s+1]
-	Qh.u <- (1-eps(u2,n))*x[r-1]+eps(u2,n)*x[r]
+	Qh.l <- ifelse(s==n,x[s],(1 - eps(u1, n)) * x[s] + eps(u1, n) * x[s + 1])
+	Qh.u <- ifelse(r==1,x[r],(1 - eps(u2, n)) * x[r - 1] + eps(u2, n) * x[r])
 	temp <- data.frame(rbind(c(alpha,P,Q.l,Q.u),c(alpha,P,Qh.l,Qh.u)))
 	colnames(temp) <- c("alpha","P","1-sided.lower","1-sided.upper")
 	rownames(temp) <- c("OS-Based","FOS-Based")
