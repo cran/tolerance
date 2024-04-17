@@ -58,10 +58,10 @@ nptol.int(x, alpha = 0.05, P = 0.99, side = 1,
 
 \examples{ 
 ## 90\%/95\% 2-sided nonparametric tolerance intervals for a 
-## sample of size 20. 
+## sample of size 200. 
 
 set.seed(100)
-x <- rlogis(20, 5, 1)
+x <- rlogis(200, 5, 1)
 out <- nptol.int(x = x, alpha = 0.10, P = 0.95, side = 1,
                  method = "WILKS", upper = NULL, lower = NULL)
 out

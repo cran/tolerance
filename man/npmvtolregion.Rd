@@ -31,9 +31,9 @@ npmvtol.region(x, alpha = NULL, P = NULL, Beta = NULL, depth.fn,
 }
 
 \references{
-  Young, D. S. and Mathew, T. (2020+), Nonparametric Hyperrectangular Tolerance
+  Young, D. S. and Mathew, T. (2020), Nonparametric Hyperrectangular Tolerance
 and Prediction Regions for Setting Multivariate Reference Regions in Laboratory
-Medicine, \emph{Submitted}.
+Medicine, \emph{Statistical Methods in Medical Research}, \bold{29}, 3569--3585.
 } 
 
 \examples{ 
@@ -50,9 +50,9 @@ mdepth <- function(pts, x){
 
 set.seed(100)
 x <- cbind(rnorm(100), rnorm(100), rnorm(100))
-out <-npmvtol.region(x = x, alpha = 0.10, P = 0.95, depth.fn = mdepth,
-                     type = "semispace", semi.order = list(lower = 2, 
-                     center = 3, upper = 1))
+out <- npmvtol.region(x = x, alpha = 0.10, P = 0.95, depth.fn = mdepth,
+                      type = "semispace", semi.order = list(lower = 2, 
+                      center = 3, upper = 1))
 out
 }
 
